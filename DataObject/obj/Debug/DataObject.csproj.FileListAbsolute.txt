@@ -1,0 +1,6 @@
+D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\bin\Debug\DataObject.dll
+D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\bin\Debug\DataObject.pdb
+D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\obj\Debug\DataObject.csproj.AssemblyReference.cache
+D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\obj\Debug\DataObject.csproj.CoreCompileInputs.cache
+D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\obj\Debug\DataObject.dll
+D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\obj\Debug\DataObject.pdb
