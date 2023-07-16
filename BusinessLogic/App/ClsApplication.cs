@@ -14,16 +14,20 @@ namespace BusinessLogic.AccountsLogic
     public class ClsApplication
     {
         public static ClsBalanceSheetAccountsCatalog balanceSheetAcccounts1Period = new ClsBalanceSheetAccountsCatalog();
-        public static ClsBalanceSheetAccountsCatalog balancecsheetAcccounts2Period = new ClsBalanceSheetAccountsCatalog();
+        public static ClsBalanceSheetAccountsCatalog balanceSheetAcccounts2Period = new ClsBalanceSheetAccountsCatalog();
         public static ClsProfitAndLossStatementAccountsCatalog profitAndLossStatementAccounts1Period = new ClsProfitAndLossStatementAccountsCatalog();
         public static ClsProfitAndLossStatementAccountsCatalog profitAndLossStatementAccounts2Period = new ClsProfitAndLossStatementAccountsCatalog();
-        
         
         
         #region Balance Sheet accounts period 1 catalog methods
 
 
         #region Current Assets methods
+
+        public static int searchCurrentAsset1PeriodWithName(string name)
+        {
+           return balanceSheetAcccounts1Period.searchCurrentAssetWithName(name);
+        }
 
         public static void addCurrentAsset1Period(ClsBalanceSheetAccount account)
         {
@@ -54,6 +58,11 @@ namespace BusinessLogic.AccountsLogic
 
         #region Non-Current Assets methods
 
+        public static int searchNonCurrentAsset1PeriodWithName(string name)
+        {
+            return balanceSheetAcccounts1Period.searchNonCurrentAssetWithName(name);
+        }
+
         public static void addNonCurrentAsset1Period(ClsBalanceSheetAccount account)
         {
             balanceSheetAcccounts1Period.addNonCurrentAsset(account);
@@ -81,7 +90,12 @@ namespace BusinessLogic.AccountsLogic
 
         #endregion
 
-        #region Complementary assets methods
+        #region Deferred assets methods
+
+        public static int searchDeferredAsset1PeriodWithName(string name)
+        {
+            return balanceSheetAcccounts1Period.searchDeferredAssetWithName(name);
+        }
 
         public static void addDeferredAsset1Period(ClsBalanceSheetAccount account)
         {
@@ -112,7 +126,10 @@ namespace BusinessLogic.AccountsLogic
 
         #region Short term liabilities methods
 
-
+        public static int searchShortTermLiability1PeriodWithName(string name)
+        {
+            return balanceSheetAcccounts1Period.searchShortTermLiabilityWithName(name);
+        }
         public static void addShortTermLiabilitie1Period(ClsBalanceSheetAccount account)
         {
             balanceSheetAcccounts1Period.addShortTermLiabilitie(account);
@@ -141,6 +158,11 @@ namespace BusinessLogic.AccountsLogic
         #endregion
 
         #region Long term liabilities methods
+
+        public static int searchLongTermLiability1PeriodWithName(string name)
+        {
+            return balanceSheetAcccounts1Period.searchLongTermLiabilityWithName(name);
+        }
         public static void addLongTermLiabilitie1Period(ClsBalanceSheetAccount account)
         {
             balanceSheetAcccounts1Period.addLongTermLiabilitie(account);
@@ -170,6 +192,13 @@ namespace BusinessLogic.AccountsLogic
         #endregion
 
         #region Stockholders' equity methods
+
+        public static int searchStockholdersEquity1PeriodWithName(string name)
+        {
+            return balanceSheetAcccounts1Period.searchStockholderEquityWithName(name);
+        }
+
+
         public static void addStockholdersEquity1Period(ClsBalanceSheetAccount account)
         {
             balanceSheetAcccounts1Period.addStockholdersEquity(account);
@@ -201,93 +230,108 @@ namespace BusinessLogic.AccountsLogic
 
         #endregion
 
-
         #region Balance Sheet accounts period 2 catalog methods
 
 
         #region Current Assets methods
 
+        public static int searchCurrentAsset2PeriodWithName(string name)
+        {
+            return balanceSheetAcccounts2Period.searchCurrentAssetWithName(name);
+        }
+
         public static void addCurrentAsset2Period(ClsBalanceSheetAccount account)
         {
-            balancecsheetAcccounts2Period.addCurrentAsset(account);
+            balanceSheetAcccounts2Period.addCurrentAsset(account);
         }
 
         public static void removeCurrentAsset2Period(int index)
         {
-            balancecsheetAcccounts2Period.removeCurrentAsset(index);
+            balanceSheetAcccounts2Period.removeCurrentAsset(index);
         }
 
         public static void setCurrentAssetAt2Period(int index, ClsBalanceSheetAccount account)
         {
-            balancecsheetAcccounts2Period.setCurrentAssetAt(index, account);
+            balanceSheetAcccounts2Period.setCurrentAssetAt(index, account);
         }
 
         public static void clearCurrentAssets2Period()
         {
-            balancecsheetAcccounts2Period.clearCurrentAssets();
+            balanceSheetAcccounts2Period.clearCurrentAssets();
         }
 
         public static decimal currentAssetsCalculateTotal2Period()
         {
-            return balancecsheetAcccounts2Period.currentAssetsCalculateTotal();
+            return balanceSheetAcccounts2Period.currentAssetsCalculateTotal();
         }
 
         #endregion
 
         #region Non-Current Assets methods
 
+        public static int searchNonCurrentAsset2PeriodWithName(string name)
+        {
+            return balanceSheetAcccounts2Period.searchNonCurrentAssetWithName(name);
+        }
+
+
         public static void addNonCurrentAsset2Period(ClsBalanceSheetAccount account)
         {
-            balancecsheetAcccounts2Period.addNonCurrentAsset(account);
+            balanceSheetAcccounts2Period.addNonCurrentAsset(account);
         }
 
         public static void removeNonCurrentAsset2Period(int index)
         {
-            balancecsheetAcccounts2Period.removeNonCurrentAsset(index);
+            balanceSheetAcccounts2Period.removeNonCurrentAsset(index);
         }
 
         public static void setNonCurrentAssetAt2Period(int index, ClsBalanceSheetAccount account)
         {
-            balancecsheetAcccounts2Period.setNonCurrentAssetAt(index, account);
+            balanceSheetAcccounts2Period.setNonCurrentAssetAt(index, account);
         }
 
         public static void clearNonCurrentAssets2Period()
         {
-            balancecsheetAcccounts2Period.clearNonCurrentAssets();
+            balanceSheetAcccounts2Period.clearNonCurrentAssets();
         }
 
         public static decimal nonCurrentAssetsCalculateTotal2Period()
         {
-            return balancecsheetAcccounts2Period.nonCurrentAssetsCalculateTotal();
+            return balanceSheetAcccounts2Period.nonCurrentAssetsCalculateTotal();
         }
 
         #endregion
 
-        #region Complementary assets methods
+        #region Deferred assets methods
+
+        public static int searchDeferredAsset2PeriodWithName(string name)
+        {
+            return balanceSheetAcccounts2Period.searchDeferredAssetWithName(name);
+        }
 
         public static void addDeferredAsset2Period(ClsBalanceSheetAccount account)
         {
-            balancecsheetAcccounts2Period.addDeferredAsset(account);
+            balanceSheetAcccounts2Period.addDeferredAsset(account);
         }
 
         public static void removeDeferredAsset2Period(int index)
         {
-            balancecsheetAcccounts2Period.removeDeferredAsset(index);
+            balanceSheetAcccounts2Period.removeDeferredAsset(index);
         }
 
         public static void setDeferredAssetAt2Period(int index, ClsBalanceSheetAccount account)
         {
-            balancecsheetAcccounts2Period.setDeferredAssetAt(index, account);
+            balanceSheetAcccounts2Period.setDeferredAssetAt(index, account);
         }
 
         public static void clearComplementaryAssets2Period()
         {
-            balancecsheetAcccounts2Period.clearDeferredAssets();
+            balanceSheetAcccounts2Period.clearDeferredAssets();
         }
 
         public static decimal deferredAssetsCalculateTotal2Period()
         {
-            return balancecsheetAcccounts2Period.deferredAssetsCalculateTotal();
+            return balanceSheetAcccounts2Period.deferredAssetsCalculateTotal();
         }
 
         #endregion
@@ -295,86 +339,105 @@ namespace BusinessLogic.AccountsLogic
         #region Short term liabilities methods
 
 
+        public static int searchShortTermLiability2PeriodWithName(string name)
+        {
+            return balanceSheetAcccounts1Period.searchShortTermLiabilityWithName(name);
+        }
+
         public static void addShortTermLiabilitie2Period(ClsBalanceSheetAccount account)
         {
-            balancecsheetAcccounts2Period.addShortTermLiabilitie(account);
+            balanceSheetAcccounts2Period.addShortTermLiabilitie(account);
         }
 
         public static void removeShortTermLiabilitie2Period(int index)
         {
-            balancecsheetAcccounts2Period.removeShortTermLiabilitie(index);
+            balanceSheetAcccounts2Period.removeShortTermLiabilitie(index);
         }
 
         public static void setShortTermLiabilitie2Period(int index, ClsBalanceSheetAccount account)
         {
-            balancecsheetAcccounts2Period.setShortTermLiabilitieAt(index, account);
+            balanceSheetAcccounts2Period.setShortTermLiabilitieAt(index, account);
         }
 
         public static void clearShortTermLiabilities2Period()
         {
-            balancecsheetAcccounts2Period.clearShortTermLiabilities();
+            balanceSheetAcccounts2Period.clearShortTermLiabilities();
         }
 
         public static decimal shortTermLiabilitiesCalculateTotal2Period()
         {
-            return balancecsheetAcccounts2Period.shortTermLiabilitiesCalculateTotal();
+            return balanceSheetAcccounts2Period.shortTermLiabilitiesCalculateTotal();
         }
 
         #endregion
 
         #region Long term liabilities methods
+
+
+        public static int searchLongTermLiability2PeriodWithName(string name)
+        {
+            return balanceSheetAcccounts2Period.searchLongTermLiabilityWithName(name);
+        }
+
         public static void addLongTermLiabilitie2Period(ClsBalanceSheetAccount account)
         {
-            balancecsheetAcccounts2Period.addLongTermLiabilitie(account);
+            balanceSheetAcccounts2Period.addLongTermLiabilitie(account);
         }
 
         public static void removeLongTermLiabilitie2Period(int index)
         {
-            balancecsheetAcccounts2Period.removeLongTermLiabilitie(index);
+            balanceSheetAcccounts2Period.removeLongTermLiabilitie(index);
         }
 
         public static void setLongTermLiabilitie2Period(int index, ClsBalanceSheetAccount account)
         {
-            balancecsheetAcccounts2Period.setLongTermLiabilitieAt(index, account);
+            balanceSheetAcccounts2Period.setLongTermLiabilitieAt(index, account);
         }
 
         public static void clearLongTermLiabilities2Period()
         {
-            balancecsheetAcccounts2Period.clearLongTermLiabilities();
+            balanceSheetAcccounts2Period.clearLongTermLiabilities();
         }
 
         public static decimal longTermLiabilitiesCalculateTotal2Period()
         {
-            return balancecsheetAcccounts2Period.longTermLiabilitiesCalculateTotal();
+            return balanceSheetAcccounts2Period.longTermLiabilitiesCalculateTotal();
         }
 
 
         #endregion
 
         #region Stockholders' equity methods
+
+        public static int searchStockholdersEquity2PeriodWithName(string name)
+        {
+            return balanceSheetAcccounts2Period.searchStockholderEquityWithName(name);
+        }
+
+
         public static void addStockholdersEquity2Period(ClsBalanceSheetAccount account)
         {
-            balancecsheetAcccounts2Period.addStockholdersEquity(account);
+            balanceSheetAcccounts2Period.addStockholdersEquity(account);
         }
 
         public static void removeStockholdersEquity2Period(int index)
         {
-            balancecsheetAcccounts2Period.removeStockholdersEquity(index);
+            balanceSheetAcccounts2Period.removeStockholdersEquity(index);
         }
 
         public static void setStockholdersEquity2Period(int index, ClsBalanceSheetAccount account)
         {
-            balancecsheetAcccounts2Period.setStockholdersEquityAt(index, account);
+            balanceSheetAcccounts2Period.setStockholdersEquityAt(index, account);
         }
 
         public static void clearStockholdersEquities2Period()
         {
-            balancecsheetAcccounts2Period.clearStockholdersEquities();
+            balanceSheetAcccounts2Period.clearStockholdersEquities();
         }
 
         public static decimal StockholdersEquityCalculateTotal2Period()
         {
-            return balancecsheetAcccounts2Period.stockholdersEquitiesCalculateTotal();
+            return balanceSheetAcccounts2Period.stockholdersEquitiesCalculateTotal();
         }
 
 

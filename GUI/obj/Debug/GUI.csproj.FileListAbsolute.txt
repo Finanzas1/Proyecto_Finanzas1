@@ -21,3 +21,7 @@ D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\bin\Debug\SpreadsheetLight
 D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\bin\Debug\System.IO.Packaging.xml
 D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\obj\Debug\GUI.Main.FrmLogin.resources
 D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\obj\Debug\GUI.csproj.CopyComplete
+D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\bin\Debug\DataAccess.dll
+D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\bin\Debug\DataAccess.pdb
+D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\obj\Debug\GUI.Tests.CtlBalanceSheetPeriod2.resources
+D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\obj\Debug\GUI.Tests.CtlBalanceSheetPeriod1.resources

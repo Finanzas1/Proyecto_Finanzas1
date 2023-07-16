@@ -20,12 +20,12 @@ namespace DataObject.AccountsCatalog
         #endregion
 
         #region Public Variables
-        public List<ClsBalanceSheetAccount> CurrentAssetsAccounts { get => currentAssets; set => currentAssets = value; }
-        public List<ClsBalanceSheetAccount> NonCurrentAssetsAccounts { get => nonCurrentAssets; set => nonCurrentAssets = value; }
-        public List<ClsBalanceSheetAccount> ShortTermLiabilities { get => shortTermLiabilities; set => shortTermLiabilities = value; }
-        public List<ClsBalanceSheetAccount> LongTermLiabilities { get => longTermLiabilities; set => longTermLiabilities = value; }
-        public List<ClsBalanceSheetAccount> StockholdersEquity { get => stockholdersEquity; set => stockholdersEquity = value; }
-        public List<ClsBalanceSheetAccount> DeferredAssets { get => deferredAssets; set => deferredAssets = value; }
+        public List<ClsBalanceSheetAccount> CurrentAssetsAccountAccounts { get => currentAssets; set => currentAssets = value; }
+        public List<ClsBalanceSheetAccount> NonCurrentAssetAccounts { get => nonCurrentAssets; set => nonCurrentAssets = value; }
+        public List<ClsBalanceSheetAccount> ShortTermLiabilityAccounts { get => shortTermLiabilities; set => shortTermLiabilities = value; }
+        public List<ClsBalanceSheetAccount> LongTermLiabilityAccounts { get => longTermLiabilities; set => longTermLiabilities = value; }
+        public List<ClsBalanceSheetAccount> StockholdersEquityAccounts { get => stockholdersEquity; set => stockholdersEquity = value; }
+        public List<ClsBalanceSheetAccount> DeferredAssetAccounts { get => deferredAssets; set => deferredAssets = value; }
 
         #endregion
 
@@ -43,6 +43,20 @@ namespace DataObject.AccountsCatalog
 
         #region Current Assets methods
 
+        public int searchCurrentAssetWithName(string name)
+        {
+            for (int i=0; i <= currentAssets.Count; i++)
+            {
+                if(name == currentAssets[i].Name)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+     
         public void addCurrentAsset(ClsBalanceSheetAccount account)
         {
             currentAssets.Add(account);
@@ -80,6 +94,20 @@ namespace DataObject.AccountsCatalog
         #endregion
 
         #region Non-Current Assets methods
+
+        public int searchNonCurrentAssetWithName(string name)
+        {
+            for (int i = 0; i <= nonCurrentAssets.Count; i++)
+            {
+                if (name == nonCurrentAssets[i].Name)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
         public void addNonCurrentAsset(ClsBalanceSheetAccount account)
         {
             nonCurrentAssets.Add(account);
@@ -117,6 +145,18 @@ namespace DataObject.AccountsCatalog
 
         #region Deferred assets methods
 
+        public int searchDeferredAssetWithName(string name)
+        {
+            for (int i = 0; i <= deferredAssets.Count; i++)
+            {
+                if (name == deferredAssets[i].Name)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
         public void addDeferredAsset(ClsBalanceSheetAccount account)
         {
             deferredAssets.Add(account);
@@ -154,6 +194,19 @@ namespace DataObject.AccountsCatalog
 
         #region Short term liabilities methods
 
+        public int searchShortTermLiabilityWithName(string name)
+        {
+            for (int i = 0; i <= shortTermLiabilities.Count; i++)
+            {
+                if (name == shortTermLiabilities[i].Name)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
         public void addShortTermLiabilitie(ClsBalanceSheetAccount account)
         {
             shortTermLiabilities.Add(account);
@@ -190,6 +243,20 @@ namespace DataObject.AccountsCatalog
         #endregion
 
         #region Long term liabilities methods
+
+        public int searchLongTermLiabilityWithName(string name)
+        {
+            for (int i = 0; i <= longTermLiabilities.Count; i++)
+            {
+                if (name == longTermLiabilities[i].Name)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
         public void addLongTermLiabilitie(ClsBalanceSheetAccount account)
         {
             longTermLiabilities.Add(account);
@@ -226,6 +293,18 @@ namespace DataObject.AccountsCatalog
         #endregion
 
         #region Stockholders' equity methods
+        public int searchStockholderEquityWithName(string name)
+        {
+            for (int i = 0; i <= stockholdersEquity.Count; i++)
+            {
+                if (name == stockholdersEquity[i].Name)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
 
         public void addStockholdersEquity(ClsBalanceSheetAccount account)
         {

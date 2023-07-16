@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DataAccess.AccountsDataAccess
 {
@@ -14,7 +15,6 @@ namespace DataAccess.AccountsDataAccess
 
 
         public ClsProfitAndLossStatementAccountsDA() { }
-
 
 
         public ClsProfitAndLossStatementAccount saveAccountNewBalancePeriod1(ClsProfitAndLossStatementAccount account, decimal balance)
@@ -61,7 +61,6 @@ namespace DataAccess.AccountsDataAccess
 
 
 
-
         public List<ClsProfitAndLossStatementAccount> openCatalog1Period()
         {
             int iRow = 3;
@@ -89,7 +88,7 @@ namespace DataAccess.AccountsDataAccess
 
             }catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
 
             return accounts;

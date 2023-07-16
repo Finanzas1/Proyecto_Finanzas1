@@ -12,3 +12,5 @@ D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataAccess\obj\Debug\DataAcces
 D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
 D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataAccess\obj\Debug\DataAccess.dll
 D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataAccess\obj\Debug\DataAccess.pdb
+D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataAccess\bin\Debug\DataObject.dll
+D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataAccess\bin\Debug\DataObject.pdb

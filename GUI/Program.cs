@@ -1,5 +1,6 @@
-﻿using GUI.AccountsGUI;
-using GUI.Main;
+﻿using BusinessLogic.AccountsLogic;
+using DataAccess.AccountsDataAccess;
+using GUI.Tests;
 using System;
 using System.Windows.Forms;
 
@@ -13,9 +14,14 @@ namespace GUI
         [STAThread]
         static void Main()
         {
+            ClsBalanceSheetAccountsDA clsBalanceSheetAccountsDA = new ClsBalanceSheetAccountsDA();
+
+            ClsApplication.balanceSheetAcccounts1Period = clsBalanceSheetAccountsDA.openAccounts1();
+            ClsApplication.balanceSheetAcccounts2Period = clsBalanceSheetAccountsDA.openAccounts2();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmAccounts());
+            Application.Run(new CtlBalanceSheetPeriod2());
         }
     }
 }
