@@ -1,6 +1,6 @@
 ﻿namespace GUI.Tests
 {
-    partial class CtlBalanceSheetPeriod1
+    partial class FrmCtlBalanceSheetPeriod1
     {
         /// <summary>
         /// Required designer variable.

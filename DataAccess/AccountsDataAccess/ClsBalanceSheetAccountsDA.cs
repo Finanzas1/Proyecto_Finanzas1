@@ -14,8 +14,8 @@ namespace DataAccess.AccountsDataAccess
     public class ClsBalanceSheetAccountsDA
     {
 
-        string filePath1 = "D:\\Programacion DATA\\Finance 1\\Proyecto_Finanzas1\\Resources\\DataAccess\\BalanceSheetAccountsPeriod1.xlsx";
-        string filePath2 = "D:\\Programacion DATA\\Finance 1\\Proyecto_Finanzas1\\Resources\\DataAccess\\BalanceSheetAccountsPeriod2.xlsx";
+        string filePath1 = "F:\\Programacion DATA\\Finance 1\\Proyecto_Finanzas1\\Resources\\DataAccess\\BalanceSheetAccountsPeriod1.xlsx";
+        string filePath2 = "F:\\Programacion DATA\\Finance 1\\Proyecto_Finanzas1\\Resources\\DataAccess\\BalanceSheetAccountsPeriod2.xlsx";
 
 
         public ClsBalanceSheetAccountsDA() { }

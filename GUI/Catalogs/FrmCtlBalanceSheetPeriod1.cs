@@ -13,18 +13,85 @@ using System.Windows.Forms;
 
 namespace GUI.Tests
 {
-    public partial class CtlBalanceSheetPeriod2 : Form
+    public partial class FrmCtlBalanceSheetPeriod1 : Form
     {
         private ClsBalanceSheetAccountsDA balancesheetDA = new ClsBalanceSheetAccountsDA();
     
 
 
-        public CtlBalanceSheetPeriod2()
+        public FrmCtlBalanceSheetPeriod1()
         {
             InitializeComponent();
         }
 
-   
+        private void btnFill_Click(object sender, EventArgs e)
+        {
+            foreach (var item in ClsApplication.balanceSheetAcccountsPeriod1.CurrentAssetsAccountAccounts)
+            {
+                string[] row = new string[3];
+                row[0] = item.AccountCode;
+                row[1] = item.Name;
+                row[2] = Convert.ToString(item.Balance);
+
+                currentAssetsTable.Rows.Add(row);
+
+
+            }
+
+            foreach (var item in ClsApplication.balanceSheetAcccountsPeriod1.NonCurrentAssetAccounts)
+            {
+                string[] row = new string[3];
+                row[0] = item.AccountCode;
+                row[1] = item.Name;
+                row[2] = Convert.ToString(item.Balance);
+
+                nonCurrentAssetsTable.Rows.Add(row);
+
+
+            }
+
+            foreach (var item in ClsApplication.balanceSheetAcccountsPeriod1.ShortTermLiabilityAccounts)
+            {
+                string[] row = new string[3];
+                row[0] = item.AccountCode;
+                row[1] = item.Name;
+                row[2] = Convert.ToString(item.Balance);
+
+                shortTermLiabilitiesTable.Rows.Add(row);
+
+
+            }
+
+
+            foreach (var item in ClsApplication.balanceSheetAcccountsPeriod1.LongTermLiabilityAccounts)
+            {
+                string[] row = new string[3];
+                row[0] = item.AccountCode;
+                row[1] = item.Name;
+                row[2] = Convert.ToString(item.Balance);
+
+                longTermLiabilitiesTable.Rows.Add(row);
+
+
+            }
+
+            foreach (var item in ClsApplication.balanceSheetAcccountsPeriod1.StockholdersEquityAccounts)
+            {
+                string[] row = new string[3];
+                row[0] = item.AccountCode;
+                row[1] = item.Name;
+                row[2] = Convert.ToString(item.Balance);
+
+                stockholdersEquityTable.Rows.Add(row);
+
+
+            }
+
+
+
+
+
+        }
 
 
         private void limpiarCeldas()
@@ -51,7 +118,7 @@ namespace GUI.Tests
 
         private void BalanceSheet_Load(object sender, EventArgs e)
         {
-            foreach (var item in ClsApplication.balanceSheetAcccounts2Period.CurrentAssetsAccountAccounts)
+            foreach (var item in ClsApplication.balanceSheetAcccountsPeriod1.CurrentAssetsAccountAccounts)
             {
                 string[] row = new string[3];
                 row[0] = item.AccountCode;
@@ -63,7 +130,7 @@ namespace GUI.Tests
 
             }
 
-            foreach (var item in ClsApplication.balanceSheetAcccounts2Period.NonCurrentAssetAccounts)
+            foreach (var item in ClsApplication.balanceSheetAcccountsPeriod1.NonCurrentAssetAccounts)
             {
                 string[] row = new string[3];
                 row[0] = item.AccountCode;
@@ -75,7 +142,7 @@ namespace GUI.Tests
 
             }
 
-            foreach (var item in ClsApplication.balanceSheetAcccounts2Period.DeferredAssetAccounts)
+            foreach (var item in ClsApplication.balanceSheetAcccountsPeriod1.DeferredAssetAccounts)
             {
                 string[] row = new string[3];
                 row[0] = item.AccountCode;
@@ -85,7 +152,7 @@ namespace GUI.Tests
                 deferredAssetsTable.Rows.Add(row);
             }
 
-            foreach (var item in ClsApplication.balanceSheetAcccounts2Period.ShortTermLiabilityAccounts)
+            foreach (var item in ClsApplication.balanceSheetAcccountsPeriod1.ShortTermLiabilityAccounts)
             {
                 string[] row = new string[3];
                 row[0] = item.AccountCode;
@@ -98,7 +165,7 @@ namespace GUI.Tests
             }
 
 
-            foreach (var item in ClsApplication.balanceSheetAcccounts2Period.LongTermLiabilityAccounts)
+            foreach (var item in ClsApplication.balanceSheetAcccountsPeriod1.LongTermLiabilityAccounts)
             {
                 string[] row = new string[3];
                 row[0] = item.AccountCode;
@@ -110,7 +177,7 @@ namespace GUI.Tests
 
             }
 
-            foreach (var item in ClsApplication.balanceSheetAcccounts2Period.StockholdersEquityAccounts)
+            foreach (var item in ClsApplication.balanceSheetAcccountsPeriod1.StockholdersEquityAccounts)
             {
                 string[] row = new string[3];
                 row[0] = item.AccountCode;
@@ -150,12 +217,12 @@ namespace GUI.Tests
                 decimal balance = Convert.ToDecimal(txtCurrentAssetBalance.Text);
                 int cbIndex = cbCurrentAssets.SelectedIndex;
 
-                int index = ClsApplication.searchCurrentAsset2PeriodWithName(cuenta);
+                int index = ClsApplication.searchCurrentAsset1PeriodWithName(cuenta);
 
-                ClsApplication.balanceSheetAcccounts2Period.CurrentAssetsAccountAccounts[index].Balance = balance;
+                ClsApplication.balanceSheetAcccountsPeriod1.CurrentAssetsAccountAccounts[index].Balance = balance;
 
 
-                currentAssetsTable.Rows[cbIndex].Cells[2].Value = Convert.ToString(balancesheetDA.saveAccountNewBalancePeriod2(ClsApplication.balanceSheetAcccounts2Period.CurrentAssetsAccountAccounts[index], balance));
+                currentAssetsTable.Rows[cbIndex].Cells[2].Value = Convert.ToString(balancesheetDA.saveAccountNewBalancePeriod1(ClsApplication.balanceSheetAcccountsPeriod1.CurrentAssetsAccountAccounts[index], balance));
 
             }
 
@@ -183,12 +250,12 @@ namespace GUI.Tests
                 decimal balance = Convert.ToDecimal(txtNonCurrentAssetBalance.Text);
                 int cbIndex = cbNonCurrentAssets.SelectedIndex;
 
-                int index = ClsApplication.searchNonCurrentAsset2PeriodWithName(cuenta);
+                int index = ClsApplication.searchNonCurrentAsset1PeriodWithName(cuenta);
 
-                ClsApplication.balanceSheetAcccounts2Period.NonCurrentAssetAccounts[index].Balance = balance;
+                ClsApplication.balanceSheetAcccountsPeriod1.NonCurrentAssetAccounts[index].Balance = balance;
 
 
-                nonCurrentAssetsTable.Rows[cbIndex].Cells[2].Value = Convert.ToString(balancesheetDA.saveAccountNewBalancePeriod2(ClsApplication.balanceSheetAcccounts2Period.NonCurrentAssetAccounts[index], balance));
+                nonCurrentAssetsTable.Rows[cbIndex].Cells[2].Value = Convert.ToString(balancesheetDA.saveAccountNewBalancePeriod1(ClsApplication.balanceSheetAcccountsPeriod1.NonCurrentAssetAccounts[index], balance));
 
             }
 
@@ -213,12 +280,12 @@ namespace GUI.Tests
                 decimal balance = Convert.ToDecimal(txtDeferredAssetBalance.Text);
                 int cbIndex = cbDeferredAssets.SelectedIndex;
 
-                int index = ClsApplication.searchDeferredAsset2PeriodWithName(cuenta);
+                int index = ClsApplication.searchDeferredAsset1PeriodWithName(cuenta);
 
-                ClsApplication.balanceSheetAcccounts2Period.DeferredAssetAccounts[index].Balance = balance;
+                ClsApplication.balanceSheetAcccountsPeriod1.DeferredAssetAccounts[index].Balance = balance;
 
 
-                deferredAssetsTable.Rows[cbIndex].Cells[2].Value = Convert.ToString(balancesheetDA.saveAccountNewBalancePeriod2(ClsApplication.balanceSheetAcccounts2Period.DeferredAssetAccounts[index], balance));
+                deferredAssetsTable.Rows[cbIndex].Cells[2].Value = Convert.ToString(balancesheetDA.saveAccountNewBalancePeriod1(ClsApplication.balanceSheetAcccountsPeriod1.DeferredAssetAccounts[index], balance));
 
             }
 
@@ -245,12 +312,12 @@ namespace GUI.Tests
                 decimal balance = Convert.ToDecimal(txtShortTermLiabilityBalance.Text);
                 int cbIndex = cbShortTermLiabilities.SelectedIndex;
 
-                int index = ClsApplication.searchShortTermLiability2PeriodWithName(cuenta);
+                int index = ClsApplication.searchShortTermLiability1PeriodWithName(cuenta);
 
-                ClsApplication.balanceSheetAcccounts2Period.ShortTermLiabilityAccounts[index].Balance = balance;
+                ClsApplication.balanceSheetAcccountsPeriod1.ShortTermLiabilityAccounts[index].Balance = balance;
 
 
-                shortTermLiabilitiesTable.Rows[cbIndex].Cells[2].Value = Convert.ToString(balancesheetDA.saveAccountNewBalancePeriod2(ClsApplication.balanceSheetAcccounts2Period.ShortTermLiabilityAccounts[index], balance));
+                shortTermLiabilitiesTable.Rows[cbIndex].Cells[2].Value = Convert.ToString(balancesheetDA.saveAccountNewBalancePeriod1(ClsApplication.balanceSheetAcccountsPeriod1.ShortTermLiabilityAccounts[index], balance));
 
             }
 
@@ -276,12 +343,12 @@ namespace GUI.Tests
                 decimal balance = Convert.ToDecimal(txtLongTermLiabilityBalance.Text);
                 int cbIndex = cbLongTermLiabilities.SelectedIndex;
 
-                int index = ClsApplication.searchLongTermLiability2PeriodWithName(cuenta);
+                int index = ClsApplication.searchLongTermLiability1PeriodWithName(cuenta);
 
-                ClsApplication.balanceSheetAcccounts2Period.LongTermLiabilityAccounts[index].Balance = balance;
+                ClsApplication.balanceSheetAcccountsPeriod1.LongTermLiabilityAccounts[index].Balance = balance;
 
 
-                longTermLiabilitiesTable.Rows[cbIndex].Cells[2].Value = Convert.ToString(balancesheetDA.saveAccountNewBalancePeriod2(ClsApplication.balanceSheetAcccounts2Period.LongTermLiabilityAccounts[index], balance));
+                longTermLiabilitiesTable.Rows[cbIndex].Cells[2].Value = Convert.ToString(balancesheetDA.saveAccountNewBalancePeriod1(ClsApplication.balanceSheetAcccountsPeriod1.LongTermLiabilityAccounts[index], balance));
 
             }
 
@@ -306,12 +373,12 @@ namespace GUI.Tests
                 decimal balance = Convert.ToDecimal(txtStockholderEquityBalance.Text);
                 int cbIndex = cbStockholderEquities.SelectedIndex;
 
-                int index = ClsApplication.searchStockholdersEquity2PeriodWithName(cuenta);
+                int index = ClsApplication.searchStockholdersEquity1PeriodWithName(cuenta);
 
-                ClsApplication.balanceSheetAcccounts2Period.StockholdersEquityAccounts[index].Balance = balance;
+                ClsApplication.balanceSheetAcccountsPeriod1.StockholdersEquityAccounts[index].Balance = balance;
 
 
-                stockholdersEquityTable.Rows[cbIndex].Cells[2].Value = Convert.ToString(balancesheetDA.saveAccountNewBalancePeriod2(ClsApplication.balanceSheetAcccounts2Period.StockholdersEquityAccounts[index], balance));
+                stockholdersEquityTable.Rows[cbIndex].Cells[2].Value = Convert.ToString(balancesheetDA.saveAccountNewBalancePeriod1(ClsApplication.balanceSheetAcccountsPeriod1.StockholdersEquityAccounts[index], balance));
 
             }
 

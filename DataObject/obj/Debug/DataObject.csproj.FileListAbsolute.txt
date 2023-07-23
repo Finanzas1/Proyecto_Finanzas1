@@ -4,3 +4,9 @@ D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\obj\Debug\DataObjec
 D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\obj\Debug\DataObject.csproj.CoreCompileInputs.cache
 D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\obj\Debug\DataObject.dll
 D:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\obj\Debug\DataObject.pdb
+F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\bin\Debug\DataObject.dll
+F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\bin\Debug\DataObject.pdb
+F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\obj\Debug\DataObject.csproj.AssemblyReference.cache
+F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\obj\Debug\DataObject.csproj.CoreCompileInputs.cache
+F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\obj\Debug\DataObject.dll
+F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\DataObject\obj\Debug\DataObject.pdb
