@@ -1,5 +1,6 @@
 ﻿using DataObject.Accounts;
 using DataObject.AccountsCatalog;
+using DocumentFormat.OpenXml.Drawing.Charts;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Text;
@@ -13,182 +14,177 @@ namespace BusinessLogic.AccountsLogic
 {
     public class ClsApplication
     {
-        public static ClsBalanceSheetAccountsCatalog balanceSheetAcccountsPeriod1 = new ClsBalanceSheetAccountsCatalog();
-        public static ClsBalanceSheetAccountsCatalog balanceSheetAcccountsPeriod2 = new ClsBalanceSheetAccountsCatalog();
-        public static ClsProfitAndLossStatementAccountsCatalog profitAndLossStatementAccountsPeriod1 = new ClsProfitAndLossStatementAccountsCatalog();
-        public static ClsProfitAndLossStatementAccountsCatalog profitAndLossStatementAccountsPeriod2 = new ClsProfitAndLossStatementAccountsCatalog();
+        public static ClsBalanceSheetAccountsCatalog balanceSheetAcccounts = new ClsBalanceSheetAccountsCatalog();
+        public static ClsProfitAndLossStatementAccountsCatalog profitAndLossStatementAccounts = new ClsProfitAndLossStatementAccountsCatalog();
+  
 
 
         #region Balance sheet
 
-
-        #region Balance Sheet accounts period 1 catalog methods
-
-
         #region Current Assets methods
 
-        public static int searchCurrentAsset1PeriodWithName(string name)
+        public static int searchCurrentAssetWithName(string name)
         {
-            return balanceSheetAcccountsPeriod1.searchCurrentAssetWithName(name);
+            return balanceSheetAcccounts.searchCurrentAssetWithName(name);
         }
 
-        public static void addCurrentAsset1Period(ClsBalanceSheetAccount account)
+        public static void addCurrentAsset(ClsBalanceSheetAccount account)
         {
-            balanceSheetAcccountsPeriod1.addCurrentAsset(account);
+            balanceSheetAcccounts.addCurrentAsset(account);
         }
 
-        public static void removeCurrentAsset1Period(int index)
+        public static void removeCurrentAsset(int index)
         {
-            balanceSheetAcccountsPeriod1.removeCurrentAsset(index);
+            balanceSheetAcccounts.removeCurrentAsset(index);
         }
 
-        public static void setCurrentAssetAt1Period(int index, ClsBalanceSheetAccount account)
+        public static void setCurrentAssetAt(int index, ClsBalanceSheetAccount account)
         {
-            balanceSheetAcccountsPeriod1.setCurrentAssetAt(index, account);
+            balanceSheetAcccounts.setCurrentAssetAt(index, account);
         }
 
-        public static void clearCurrentAssets1Period()
+        public static void clearCurrentAssets()
         {
-            balanceSheetAcccountsPeriod1.clearCurrentAssets();
+            balanceSheetAcccounts.clearCurrentAssets();
         }
 
-        public static decimal currentAssetsCalculateTotal1Period()
+        public static decimal currentAssetsCalculateTotal(int period)
         {
-            return balanceSheetAcccountsPeriod1.currentAssetsCalculateTotal();
+            return balanceSheetAcccounts.currentAssetsCalculateTotal(period);
         }
 
         #endregion
 
         #region Non-Current Assets methods
 
-        public static int searchNonCurrentAsset1PeriodWithName(string name)
+        public static int searchNonCurrentAssetWithName(string name)
         {
-            return balanceSheetAcccountsPeriod1.searchNonCurrentAssetWithName(name);
+            return balanceSheetAcccounts.searchNonCurrentAssetWithName(name);
         }
 
-        public static void addNonCurrentAsset1Period(ClsBalanceSheetAccount account)
+        public static void addNonCurrentAsset(ClsBalanceSheetAccount account)
         {
-            balanceSheetAcccountsPeriod1.addNonCurrentAsset(account);
+            balanceSheetAcccounts.addNonCurrentAsset(account);
         }
 
-        public static void removeNonCurrentAsset1Period(int index)
+        public static void removeNonCurrentAsset(int index)
         {
-            balanceSheetAcccountsPeriod1.removeNonCurrentAsset(index);
+            balanceSheetAcccounts.removeNonCurrentAsset(index);
         }
 
-        public static void setNonCurrentAssetAt1Period(int index, ClsBalanceSheetAccount account)
+        public static void setNonCurrentAssetAt(int index, ClsBalanceSheetAccount account)
         {
-            balanceSheetAcccountsPeriod1.setNonCurrentAssetAt(index, account);
+            balanceSheetAcccounts.setNonCurrentAssetAt(index, account);
         }
 
-        public static void clearNonCurrentAssets1Period()
+        public static void clearNonCurrentAssets()
         {
-            balanceSheetAcccountsPeriod1.clearNonCurrentAssets();
+            balanceSheetAcccounts.clearNonCurrentAssets();
         }
 
-        public static decimal nonCurrentAssetsCalculateTotal1Period()
+        public static decimal nonCurrentAssetsCalculateTotal(int period)
         {
-            return balanceSheetAcccountsPeriod1.nonCurrentAssetsCalculateTotal();
+            return balanceSheetAcccounts.nonCurrentAssetsCalculateTotal(period);
         }
 
         #endregion
 
         #region Deferred assets methods
 
-        public static int searchDeferredAsset1PeriodWithName(string name)
+        public static int searchDeferredAssetWithName(string name)
         {
-            return balanceSheetAcccountsPeriod1.searchDeferredAssetWithName(name);
+            return balanceSheetAcccounts.searchDeferredAssetWithName(name);
         }
 
-        public static void addDeferredAsset1Period(ClsBalanceSheetAccount account)
+        public static void addDeferredAsset(ClsBalanceSheetAccount account)
         {
-            balanceSheetAcccountsPeriod1.addDeferredAsset(account);
+            balanceSheetAcccounts.addDeferredAsset(account);
         }
 
-        public static void removeDeferredAsset1Period(int index)
+        public static void removeDeferredAsset(int index)
         {
-            balanceSheetAcccountsPeriod1.removeDeferredAsset(index);
+            balanceSheetAcccounts.removeDeferredAsset(index);
         }
 
-        public static void setDeferredAssetAt1Period(int index, ClsBalanceSheetAccount account)
+        public static void setDeferredAssetAt(int index, ClsBalanceSheetAccount account)
         {
-            balanceSheetAcccountsPeriod1.setDeferredAssetAt(index, account);
+            balanceSheetAcccounts.setDeferredAssetAt(index, account);
         }
 
-        public static void clearComplementaryAssets1Period()
+        public static void clearDeferredAssets()
         {
-            balanceSheetAcccountsPeriod1.clearDeferredAssets();
+            balanceSheetAcccounts.clearDeferredAssets();
         }
 
-        public static decimal deferredAssetsCalculateTotal1Period()
+        public static decimal deferredAssetsCalculateTotal(int period)
         {
-            return balanceSheetAcccountsPeriod1.deferredAssetsCalculateTotal();
+            return balanceSheetAcccounts.deferredAssetsCalculateTotal(period);
         }
 
         #endregion
 
         #region Short term liabilities methods
 
-        public static int searchShortTermLiability1PeriodWithName(string name)
+        public static int searchShortTermLiabilityWithName(string name)
         {
-            return balanceSheetAcccountsPeriod1.searchShortTermLiabilityWithName(name);
+            return balanceSheetAcccounts.searchShortTermLiabilityWithName(name);
         }
-        public static void addShortTermLiabilitie1Period(ClsBalanceSheetAccount account)
+        public static void addShortTermLiabilitie(ClsBalanceSheetAccount account)
         {
-            balanceSheetAcccountsPeriod1.addShortTermLiabilitie(account);
-        }
-
-        public static void removeShortTermLiabilitie1Period(int index)
-        {
-            balanceSheetAcccountsPeriod1.removeShortTermLiabilitie(index);
+            balanceSheetAcccounts.addShortTermLiabilitie(account);
         }
 
-        public static void setShortTermLiabilitie1Period(int index, ClsBalanceSheetAccount account)
+        public static void removeShortTermLiabilitie(int index)
         {
-            balanceSheetAcccountsPeriod1.setShortTermLiabilitieAt(index, account);
+            balanceSheetAcccounts.removeShortTermLiabilitie(index);
         }
 
-        public static void clearShortTermLiabilities1Period()
+        public static void setShortTermLiabilitie(int index, ClsBalanceSheetAccount account)
         {
-            balanceSheetAcccountsPeriod1.clearShortTermLiabilities();
+            balanceSheetAcccounts.setShortTermLiabilitieAt(index, account);
         }
 
-        public static decimal shortTermLiabilitiesCalculateTotal1Period()
+        public static void clearShortTermLiabilities()
         {
-            return balanceSheetAcccountsPeriod1.shortTermLiabilitiesCalculateTotal();
+            balanceSheetAcccounts.clearShortTermLiabilities();
+        }
+
+        public static decimal shortTermLiabilitiesCalculateTotal(int period)
+        {
+            return balanceSheetAcccounts.shortTermLiabilitiesCalculateTotal(period);
         }
 
         #endregion
 
         #region Long term liabilities methods
 
-        public static int searchLongTermLiability1PeriodWithName(string name)
+        public static int searchLongTermLiabilityWithName(string name)
         {
-            return balanceSheetAcccountsPeriod1.searchLongTermLiabilityWithName(name);
+            return balanceSheetAcccounts.searchLongTermLiabilityWithName(name);
         }
-        public static void addLongTermLiabilitie1Period(ClsBalanceSheetAccount account)
+        public static void addLongTermLiabilitie(ClsBalanceSheetAccount account)
         {
-            balanceSheetAcccountsPeriod1.addLongTermLiabilitie(account);
-        }
-
-        public static void removeLongTermLiabilitie1Period(int index)
-        {
-            balanceSheetAcccountsPeriod1.removeLongTermLiabilitie(index);
+            balanceSheetAcccounts.addLongTermLiabilitie(account);
         }
 
-        public static void setLongTermLiabilitie1Period(int index, ClsBalanceSheetAccount account)
+        public static void removeLongTermLiabilitie(int index)
         {
-            balanceSheetAcccountsPeriod1.setLongTermLiabilitieAt(index, account);
+            balanceSheetAcccounts.removeLongTermLiabilitie(index);
         }
 
-        public static void clearLongTermLiabilities1Period()
+        public static void setLongTermLiabilitie(int index, ClsBalanceSheetAccount account)
         {
-            balanceSheetAcccountsPeriod1.clearLongTermLiabilities();
+            balanceSheetAcccounts.setLongTermLiabilitieAt(index, account);
         }
 
-        public static decimal longTermLiabilitiesCalculateTotal1Period()
+        public static void clearLongTermLiabilities()
         {
-            return balanceSheetAcccountsPeriod1.longTermLiabilitiesCalculateTotal();
+            balanceSheetAcccounts.clearLongTermLiabilities();
+        }
+
+        public static decimal longTermLiabilitiesCalculateTotal(int period)
+        {
+            return balanceSheetAcccounts.longTermLiabilitiesCalculateTotal(period);
         }
 
 
@@ -196,282 +192,55 @@ namespace BusinessLogic.AccountsLogic
 
         #region Stockholders' equity methods
 
-        public static int searchStockholdersEquity1PeriodWithName(string name)
+        public static int searchStockholdersEquityWithName(string name)
         {
-            return balanceSheetAcccountsPeriod1.searchStockholderEquityWithName(name);
+            return balanceSheetAcccounts.searchStockholderEquityWithName(name);
         }
 
 
-        public static void addStockholdersEquity1Period(ClsBalanceSheetAccount account)
+        public static void addStockholdersEquity(ClsBalanceSheetAccount account)
         {
-            balanceSheetAcccountsPeriod1.addStockholdersEquity(account);
+            balanceSheetAcccounts.addStockholdersEquity(account);
         }
 
-        public static void removeStockholdersEquity1Period(int index)
+        public static void removeStockholdersEquity(int index)
         {
-            balanceSheetAcccountsPeriod1.removeStockholdersEquity(index);
+            balanceSheetAcccounts.removeStockholdersEquity(index);
         }
 
-        public static void setStockholdersEquity1Period(int index, ClsBalanceSheetAccount account)
+        public static void setStockholdersEquity(int index, ClsBalanceSheetAccount account)
         {
-            balanceSheetAcccountsPeriod1.setStockholdersEquityAt(index, account);
+            balanceSheetAcccounts.setStockholdersEquityAt(index, account);
         }
 
-        public static void clearStockholdersEquities1Period()
+        public static void clearStockholdersEquities()
         {
-            balanceSheetAcccountsPeriod1.clearStockholdersEquities();
+            balanceSheetAcccounts.clearStockholdersEquities();
         }
 
-        public static decimal StockholdersEquityCalculateTotal1Period()
+        public static decimal StockholdersEquityCalculateTotal(int period)
         {
-            return balanceSheetAcccountsPeriod1.stockholdersEquitiesCalculateTotal();
-        }
-
-
-        #endregion
-
-
-        #endregion
-
-        #region Balance Sheet accounts period 2 catalog methods
-
-
-        #region Current Assets methods
-
-        public static int searchCurrentAsset2PeriodWithName(string name)
-        {
-            return balanceSheetAcccountsPeriod2.searchCurrentAssetWithName(name);
-        }
-
-        public static void addCurrentAsset2Period(ClsBalanceSheetAccount account)
-        {
-            balanceSheetAcccountsPeriod2.addCurrentAsset(account);
-        }
-
-        public static void removeCurrentAsset2Period(int index)
-        {
-            balanceSheetAcccountsPeriod2.removeCurrentAsset(index);
-        }
-
-        public static void setCurrentAssetAt2Period(int index, ClsBalanceSheetAccount account)
-        {
-            balanceSheetAcccountsPeriod2.setCurrentAssetAt(index, account);
-        }
-
-        public static void clearCurrentAssets2Period()
-        {
-            balanceSheetAcccountsPeriod2.clearCurrentAssets();
-        }
-
-        public static decimal currentAssetsCalculateTotal2Period()
-        {
-            return balanceSheetAcccountsPeriod2.currentAssetsCalculateTotal();
-        }
-
-        #endregion
-
-        #region Non-Current Assets methods
-
-        public static int searchNonCurrentAsset2PeriodWithName(string name)
-        {
-            return balanceSheetAcccountsPeriod2.searchNonCurrentAssetWithName(name);
-        }
-
-
-        public static void addNonCurrentAsset2Period(ClsBalanceSheetAccount account)
-        {
-            balanceSheetAcccountsPeriod2.addNonCurrentAsset(account);
-        }
-
-        public static void removeNonCurrentAsset2Period(int index)
-        {
-            balanceSheetAcccountsPeriod2.removeNonCurrentAsset(index);
-        }
-
-        public static void setNonCurrentAssetAt2Period(int index, ClsBalanceSheetAccount account)
-        {
-            balanceSheetAcccountsPeriod2.setNonCurrentAssetAt(index, account);
-        }
-
-        public static void clearNonCurrentAssets2Period()
-        {
-            balanceSheetAcccountsPeriod2.clearNonCurrentAssets();
-        }
-
-        public static decimal nonCurrentAssetsCalculateTotal2Period()
-        {
-            return balanceSheetAcccountsPeriod2.nonCurrentAssetsCalculateTotal();
-        }
-
-        #endregion
-
-        #region Deferred assets methods
-
-        public static int searchDeferredAsset2PeriodWithName(string name)
-        {
-            return balanceSheetAcccountsPeriod2.searchDeferredAssetWithName(name);
-        }
-
-        public static void addDeferredAsset2Period(ClsBalanceSheetAccount account)
-        {
-            balanceSheetAcccountsPeriod2.addDeferredAsset(account);
-        }
-
-        public static void removeDeferredAsset2Period(int index)
-        {
-            balanceSheetAcccountsPeriod2.removeDeferredAsset(index);
-        }
-
-        public static void setDeferredAssetAt2Period(int index, ClsBalanceSheetAccount account)
-        {
-            balanceSheetAcccountsPeriod2.setDeferredAssetAt(index, account);
-        }
-
-        public static void clearComplementaryAssets2Period()
-        {
-            balanceSheetAcccountsPeriod2.clearDeferredAssets();
-        }
-
-        public static decimal deferredAssetsCalculateTotal2Period()
-        {
-            return balanceSheetAcccountsPeriod2.deferredAssetsCalculateTotal();
-        }
-
-        #endregion
-
-        #region Short term liabilities methods
-
-
-        public static int searchShortTermLiability2PeriodWithName(string name)
-        {
-            return balanceSheetAcccountsPeriod1.searchShortTermLiabilityWithName(name);
-        }
-
-        public static void addShortTermLiabilitie2Period(ClsBalanceSheetAccount account)
-        {
-            balanceSheetAcccountsPeriod2.addShortTermLiabilitie(account);
-        }
-
-        public static void removeShortTermLiabilitie2Period(int index)
-        {
-            balanceSheetAcccountsPeriod2.removeShortTermLiabilitie(index);
-        }
-
-        public static void setShortTermLiabilitie2Period(int index, ClsBalanceSheetAccount account)
-        {
-            balanceSheetAcccountsPeriod2.setShortTermLiabilitieAt(index, account);
-        }
-
-        public static void clearShortTermLiabilities2Period()
-        {
-            balanceSheetAcccountsPeriod2.clearShortTermLiabilities();
-        }
-
-        public static decimal shortTermLiabilitiesCalculateTotal2Period()
-        {
-            return balanceSheetAcccountsPeriod2.shortTermLiabilitiesCalculateTotal();
-        }
-
-        #endregion
-
-        #region Long term liabilities methods
-
-
-        public static int searchLongTermLiability2PeriodWithName(string name)
-        {
-            return balanceSheetAcccountsPeriod2.searchLongTermLiabilityWithName(name);
-        }
-
-        public static void addLongTermLiabilitie2Period(ClsBalanceSheetAccount account)
-        {
-            balanceSheetAcccountsPeriod2.addLongTermLiabilitie(account);
-        }
-
-        public static void removeLongTermLiabilitie2Period(int index)
-        {
-            balanceSheetAcccountsPeriod2.removeLongTermLiabilitie(index);
-        }
-
-        public static void setLongTermLiabilitie2Period(int index, ClsBalanceSheetAccount account)
-        {
-            balanceSheetAcccountsPeriod2.setLongTermLiabilitieAt(index, account);
-        }
-
-        public static void clearLongTermLiabilities2Period()
-        {
-            balanceSheetAcccountsPeriod2.clearLongTermLiabilities();
-        }
-
-        public static decimal longTermLiabilitiesCalculateTotal2Period()
-        {
-            return balanceSheetAcccountsPeriod2.longTermLiabilitiesCalculateTotal();
+            return balanceSheetAcccounts.stockholdersEquitiesCalculateTotal(period);
         }
 
 
         #endregion
 
-        #region Stockholders' equity methods
-
-        public static int searchStockholdersEquity2PeriodWithName(string name)
-        {
-            return balanceSheetAcccountsPeriod2.searchStockholderEquityWithName(name);
-        }
-
-
-        public static void addStockholdersEquity2Period(ClsBalanceSheetAccount account)
-        {
-            balanceSheetAcccountsPeriod2.addStockholdersEquity(account);
-        }
-
-        public static void removeStockholdersEquity2Period(int index)
-        {
-            balanceSheetAcccountsPeriod2.removeStockholdersEquity(index);
-        }
-
-        public static void setStockholdersEquity2Period(int index, ClsBalanceSheetAccount account)
-        {
-            balanceSheetAcccountsPeriod2.setStockholdersEquityAt(index, account);
-        }
-
-        public static void clearStockholdersEquities2Period()
-        {
-            balanceSheetAcccountsPeriod2.clearStockholdersEquities();
-        }
-
-        public static decimal StockholdersEquityCalculateTotal2Period()
-        {
-            return balanceSheetAcccountsPeriod2.stockholdersEquitiesCalculateTotal();
-        }
-
-
         #endregion
-
-
-        #endregion
-
-        #endregion
-
-
-
-
-
 
 
         #region Profit and loss statement 
 
-        #region Profit and loss statement period 1 catalog methods
-
-
         #region Sales Accounts Methods
 
-        public static int searchSalesAccountWithNamePeriod1(string name)
+        public static int searchSalesAccountWithName(string name)
         {
-            return profitAndLossStatementAccountsPeriod1.searchSalesAccountWithName(name);
+            return profitAndLossStatementAccounts.searchSalesAccountWithName(name);
         }
 
-        public static decimal salesAccountsCalculateTotalPeriod1()
+        public static decimal salesAccountsCalculateTotal(int period)
         {
-            return profitAndLossStatementAccountsPeriod1.salesAccountsCalculateTotal();
+            return profitAndLossStatementAccounts.salesAccountsCalculateTotal(period);
         }
 
 
@@ -480,14 +249,14 @@ namespace BusinessLogic.AccountsLogic
 
         #region Financial Products Accounts Methods
 
-        public static int searchFinancialProductsAccountWithNamePeriod1(string name)
+        public static int searchFinancialProductsAccountWithName(string name)
         {
-            return profitAndLossStatementAccountsPeriod1.searchFinancialProductsAccountWithName(name);
+            return profitAndLossStatementAccounts.searchFinancialProductsAccountWithName(name);
         }
 
-        public static decimal financialProductsAccountsCalculateTotalPeriod1()
+        public static decimal financialProductsAccountsCalculateTotal(int period)
         {
-            return profitAndLossStatementAccountsPeriod1.financialProductsAccountsCalculateTotal();
+            return profitAndLossStatementAccounts.financialProductsAccountsCalculateTotal(period);
         }
 
         #endregion
@@ -495,14 +264,14 @@ namespace BusinessLogic.AccountsLogic
         #region Other Revenues Accounts Methods
 
 
-        public static int searchOtherRevenuesAccountWithNamePeriod1(string name)
+        public static int searchOtherRevenuesAccountWithName(string name)
         {
-            return profitAndLossStatementAccountsPeriod1.searchOtherRevenuesAccountWithName(name);
+            return profitAndLossStatementAccounts.searchOtherRevenuesAccountWithName(name);
         }
 
-        public static decimal otherRevenuesAccountsCalculateTotalPeriod1()
+        public static decimal otherRevenuesAccountsCalculateTotal(int period)
         {
-            return profitAndLossStatementAccountsPeriod1.otherRevenuesAccountsCalculateTotal();
+            return profitAndLossStatementAccounts.otherRevenuesAccountsCalculateTotal(period);
         }
 
         #endregion
@@ -510,16 +279,16 @@ namespace BusinessLogic.AccountsLogic
         #region Other Products Accounts Methods
 
 
-        public static int searchOtherProductAccountWithNamePeriod1(string name)
+        public static int searchOtherProductAccountWithName(string name)
         {
          
-            return profitAndLossStatementAccountsPeriod1.searchOtherProductAccountWithName(name);
+            return profitAndLossStatementAccounts.searchOtherProductAccountWithName(name);
         }
 
-        public static decimal otherProductsAccountsCalculateTotalPeriod1()
+        public static decimal otherProductsAccountsCalculateTotal(int period)
         {
 
-            return profitAndLossStatementAccountsPeriod1.otherProductsAccountsCalculateTotal();
+            return profitAndLossStatementAccounts.otherProductsAccountsCalculateTotal(period);
         }
 
 
@@ -527,17 +296,17 @@ namespace BusinessLogic.AccountsLogic
 
         #region Costs Accounts Methods
 
-        public static int searchCostsAccountWithNamePeriod1(string name)
+        public static int searchCostsAccountWithName(string name)
         {
    
-            return profitAndLossStatementAccountsPeriod1.searchCostsAccountWithName(name);
+            return profitAndLossStatementAccounts.searchCostsAccountWithName(name);
             
         }
 
-        public static decimal costsAccountsCalculateTotalPeriod1()
+        public static decimal costsAccountsCalculateTotal(int period)
         {
 
-            return profitAndLossStatementAccountsPeriod1 .costsAccountsCalculateTotal();
+            return profitAndLossStatementAccounts .costsAccountsCalculateTotal(period);
         }
 
         #endregion
@@ -545,14 +314,14 @@ namespace BusinessLogic.AccountsLogic
         #region Sales Expenses Accounts Methods
 
 
-        public static int searchSalesExpensesAccountWithNamePeriod1(string name)
+        public static int searchSalesExpensesAccountWithName(string name)
         {
-            return profitAndLossStatementAccountsPeriod1.searchSalesExpensesAccountWithName (name);
+            return profitAndLossStatementAccounts.searchSalesExpensesAccountWithName (name);
         }
 
-        public static decimal salesExpensesAccountsCalculateTotalPeriod1()
+        public static decimal salesExpensesAccountsCalculateTotal(int period)
         {
-            return profitAndLossStatementAccountsPeriod1.salesExpensesAccountsCalculateTotal();
+            return profitAndLossStatementAccounts.salesExpensesAccountsCalculateTotal(period);
         }
 
 
@@ -561,28 +330,28 @@ namespace BusinessLogic.AccountsLogic
 
         #region Administrative Expenses Accounts Methods
 
-        public static int searchAdministrativeExpensesAccountWithNamePeriod1(string name)
+        public static int searchAdministrativeExpensesAccountWithName(string name)
         {
-            return profitAndLossStatementAccountsPeriod1.searchAdministrativeExpensesAccountWithName(name);
+            return profitAndLossStatementAccounts.searchAdministrativeExpensesAccountWithName(name);
         }
 
-        public static decimal administrativeExpensesAccountsCalculateTotalPeriod1()
+        public static decimal administrativeExpensesAccountsCalculateTotal(int period)
         {
-            return profitAndLossStatementAccountsPeriod1.administrativeExpensesAccountsCalculateTotal ();
+            return profitAndLossStatementAccounts.administrativeExpensesAccountsCalculateTotal(period);
         }
 
         #endregion
 
         #region Financial Expenses Accounts Methods
 
-        public static int searchFinancialExpensesAccountWithNamePeriod1(string name)
+        public static int searchFinancialExpensesAccountWithName(string name)
         {
-            return profitAndLossStatementAccountsPeriod1.searchFinancialExpensesAccountWithName(name) ;
+            return profitAndLossStatementAccounts.searchFinancialExpensesAccountWithName(name) ;
         }
 
-        public static decimal financialExpensesAccountsCalculateTotalPeriod1()
+        public static decimal financialExpensesAccountsCalculateTotal(int period)
         {
-            return profitAndLossStatementAccountsPeriod1.financialExpensesAccountsCalculateTotal() ;
+            return profitAndLossStatementAccounts.financialExpensesAccountsCalculateTotal(period) ;
         }
 
 
@@ -591,169 +360,47 @@ namespace BusinessLogic.AccountsLogic
         #region Other Expenses Accounts Methods
 
 
-        public static int searchOtherExpensesAccountWithNamePeriod1(string name)
+        public static int searchOtherExpensesAccountWithName(string name)
         {
-            return profitAndLossStatementAccountsPeriod1.searchOtherExpensesAccountWithName(name);
+            return profitAndLossStatementAccounts.searchOtherExpensesAccountWithName(name);
         }
 
-        public static decimal otherExpensesAccountsCalculateTotalPeriod1()
+        public static decimal otherExpensesAccountsCalculateTotal(int period)
         {
-            return profitAndLossStatementAccountsPeriod1.otherExpensesAccountsCalculateTotal () ;
-        }
-
-
-        #endregion
-
-        #region 
-
-        #endregion
-
-        #region Profit and loss statement period 2 catalog methods
-
-
-        #region Sales Accounts Methods
-
-        public static int searchSalesAccountWithNamePeriod2(string name)
-        {
-            return profitAndLossStatementAccountsPeriod2.searchSalesAccountWithName(name);
-        }
-
-        public static decimal salesAccountsCalculateTotalPeriod2()
-        {
-            return profitAndLossStatementAccountsPeriod2.salesAccountsCalculateTotal();
-        }
-
-
-
-        #endregion
-
-        #region Financial Products Accounts Methods
-
-        public static int searchFinancialProductsAccountWithNamePeriod2(string name)
-        {
-            return profitAndLossStatementAccountsPeriod2.searchFinancialProductsAccountWithName(name);
-        }
-
-        public static decimal financialProductsAccountsCalculateTotalPeriod2()
-        {
-            return profitAndLossStatementAccountsPeriod2.financialProductsAccountsCalculateTotal();
-        }
-
-        #endregion
-
-        #region Other Revenues Accounts Methods
-
-
-        public static int searchOtherRevenuesAccountWithNamePeriod2(string name)
-        {
-            return profitAndLossStatementAccountsPeriod2.searchOtherRevenuesAccountWithName(name);
-        }
-
-        public static decimal otherRevenuesAccountsCalculateTotalPeriod2()
-        {
-            return profitAndLossStatementAccountsPeriod2.otherRevenuesAccountsCalculateTotal();
-        }
-
-        #endregion
-
-        #region Other Products Accounts Methods
-
-
-        public static int searchOtherProductAccountWithNamePeriod2(string name)
-        {
-
-            return profitAndLossStatementAccountsPeriod2.searchOtherProductAccountWithName(name);
-        }
-
-        public static decimal otherProductsAccountsCalculateTotalPeriod2()
-        {
-
-            return profitAndLossStatementAccountsPeriod2.otherProductsAccountsCalculateTotal();
+            return profitAndLossStatementAccounts.otherExpensesAccountsCalculateTotal(period) ;
         }
 
 
         #endregion
 
-        #region Costs Accounts Methods
+        #region Profit Statement Accounts Methods
 
-        public static int searchCostsAccountWithNamePeriod2(string name)
+        public static int searchProfitStatementAccountWithName(string name)
         {
-
-            return profitAndLossStatementAccountsPeriod2.searchCostsAccountWithName(name);
-
+            return profitAndLossStatementAccounts.searchProfitStatementAccountWithName(name);
         }
 
-        public static decimal costsAccountsCalculateTotalPeriod2()
+        public static decimal profitStatementAccountsCalculateTotal(int period)
         {
-
-            return profitAndLossStatementAccountsPeriod2.costsAccountsCalculateTotal();
-        }
-
-        #endregion
-
-        #region Sales Expenses Accounts Methods
-
-
-        public static int searchSalesExpensesAccountWithNamePeriod2(string name)
-        {
-            return profitAndLossStatementAccountsPeriod2.searchSalesExpensesAccountWithName(name);
-        }
-
-        public static decimal salesExpensesAccountsCalculateTotalPeriod2()
-        {
-            return profitAndLossStatementAccountsPeriod2.salesExpensesAccountsCalculateTotal();
-        }
-
-
-
-        #endregion
-
-        #region Administrative Expenses Accounts Methods
-
-        public static int searchAdministrativeExpensesAccountWithNamePeriod2(string name)
-        {
-            return profitAndLossStatementAccountsPeriod2.searchAdministrativeExpensesAccountWithName(name);
-        }
-
-        public static decimal administrativeExpensesAccountsCalculateTotalPeriod2()
-        {
-            return profitAndLossStatementAccountsPeriod2.administrativeExpensesAccountsCalculateTotal();
-        }
-
-        #endregion
-
-        #region Financial Expenses Accounts Methods
-
-        public static int searchFinancialExpensesAccountWithNamePeriod2(string name)
-        {
-            return profitAndLossStatementAccountsPeriod2.searchFinancialExpensesAccountWithName(name);
-        }
-
-        public static decimal financialExpensesAccountsCalculateTotalPeriod2()
-        {
-            return profitAndLossStatementAccountsPeriod2.financialExpensesAccountsCalculateTotal();
+            return profitAndLossStatementAccounts.profitStatementAccountsCalculateTotal(period);
+                
         }
 
 
         #endregion
 
-        #region Other Expenses Accounts Methods
+        #region Miscellaneous Accounts methods
 
-
-        public static int searchOtherExpensesAccountWithNamePeriod2(string name)
+        public static int searchMiscellaneousAccountWithName(string name)
         {
-            return profitAndLossStatementAccountsPeriod2.searchOtherExpensesAccountWithName(name);
+            return profitAndLossStatementAccounts.searchMiscellaneousAccountWithName(name);
         }
 
-        public static decimal otherExpensesAccountsCalculateTotalPeriod2()
+        public static decimal miscellaneousAccountsCalculateTotal(int period)
         {
-            return profitAndLossStatementAccountsPeriod2.otherExpensesAccountsCalculateTotal();
+            return profitAndLossStatementAccounts.miscellaneousAccountsCalculateTotal(period);
+
         }
-
-
-        #endregion
-
-        #endregion
 
         #endregion
 
@@ -761,15 +408,18 @@ namespace BusinessLogic.AccountsLogic
 
 
 
-        public static int ProfitAndLossAccountTypePeriod1(string name)
+
+
+        //Sort using Account name Profit and Loss statement 
+        public static int ProfitAndLossAccountType(string name)
         {
-            return profitAndLossStatementAccountsPeriod1.accountType(name);
+            return profitAndLossStatementAccounts.accountType(name);
         }
 
-
-        public static int ProfitAndLossAccountTypePeriod2(string name)
+        //Sort using account name Balance Sheet
+        public static int balanceSheetAccountType(string name)
         {
-            return profitAndLossStatementAccountsPeriod2.accountType(name);
+            return balanceSheetAcccounts.accountType(name);
         }
 
 

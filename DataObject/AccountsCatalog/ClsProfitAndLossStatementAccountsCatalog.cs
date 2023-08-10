@@ -1,6 +1,7 @@
 ﻿using DataObject.Accounts;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ namespace DataObject.AccountsCatalog
         private List<ClsProfitAndLossStatementAccount> administrativeExpensesAccounts;
         private List<ClsProfitAndLossStatementAccount> financialExpensesAccounts;
         private List<ClsProfitAndLossStatementAccount> otherExpensesAccounts;
+        private List<ClsProfitAndLossStatementAccount> miscellaneousAccounts;
+        private List<ClsProfitAndLossStatementAccount> profitStatementAccounts;
 
         #endregion
 
@@ -34,6 +37,8 @@ namespace DataObject.AccountsCatalog
         public List<ClsProfitAndLossStatementAccount> AdministrativeExpensesAccounts { get => administrativeExpensesAccounts; set => administrativeExpensesAccounts = value; }
         public List<ClsProfitAndLossStatementAccount> FinancialExpensesAccounts { get => financialExpensesAccounts; set => financialExpensesAccounts = value; }
         public List<ClsProfitAndLossStatementAccount> OtherExpensesAccounts { get => otherExpensesAccounts; set => otherExpensesAccounts = value; }
+        public List<ClsProfitAndLossStatementAccount> ProfitStatementAccounts { get => profitStatementAccounts; set => profitStatementAccounts = value; }
+        public List<ClsProfitAndLossStatementAccount> MiscellaneousAccounts { get => miscellaneousAccounts; set => miscellaneousAccounts = value; }
 
         #endregion
 
@@ -50,6 +55,8 @@ namespace DataObject.AccountsCatalog
             administrativeExpensesAccounts = new List<ClsProfitAndLossStatementAccount>();
             financialExpensesAccounts = new List<ClsProfitAndLossStatementAccount>();
             otherExpensesAccounts = new List<ClsProfitAndLossStatementAccount>();
+            miscellaneousAccounts = new List<ClsProfitAndLossStatementAccount>();
+            profitStatementAccounts = new List<ClsProfitAndLossStatementAccount>();
         }
 
 
@@ -70,16 +77,35 @@ namespace DataObject.AccountsCatalog
             return -1;
         }
 
-        public decimal salesAccountsCalculateTotal()
+        public decimal salesAccountsCalculateTotal(int period)
         {
             decimal total = 0;
 
-            foreach (ClsProfitAndLossStatementAccount account in salesAccounts)
+            if(period == 1)
             {
-                total = total + account.Balance;
+
+                foreach (ClsProfitAndLossStatementAccount account in salesAccounts)
+                {
+                    total = total + account.Balance[0];
+                }
+
+                return total;
+            }
+            else if (period == 1)
+            {
+
+                foreach (ClsProfitAndLossStatementAccount account in salesAccounts)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
             }
 
-            return total;
         }
 
 
@@ -123,16 +149,34 @@ namespace DataObject.AccountsCatalog
             return -1;
         }
 
-        public decimal financialProductsAccountsCalculateTotal()
+        public decimal financialProductsAccountsCalculateTotal(int period)
         {
             decimal total = 0;
 
-            foreach (ClsProfitAndLossStatementAccount account in financialProductsAccounts)
+            if (period == 1)
             {
-                total = total + account.Balance;
-            }
 
-            return total;
+                foreach (ClsProfitAndLossStatementAccount account in financialProductsAccounts)
+                {
+                    total = total + account.Balance[0];
+                }
+
+                return total;
+            }
+            else if (period == 1)
+            {
+
+                foreach (ClsProfitAndLossStatementAccount account in financialProductsAccounts)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
+            }
         }
 
 
@@ -175,16 +219,34 @@ namespace DataObject.AccountsCatalog
             return -1;
         }
 
-        public decimal otherRevenuesAccountsCalculateTotal()
+        public decimal otherRevenuesAccountsCalculateTotal(int period)
         {
             decimal total = 0;
 
-            foreach (ClsProfitAndLossStatementAccount account in otherRevenuesAccounts)
+            if (period == 1)
             {
-                total = total + account.Balance;
-            }
 
-            return total;
+                foreach (ClsProfitAndLossStatementAccount account in otherRevenuesAccounts)
+                {
+                    total = total + account.Balance[0];
+                }
+
+                return total;
+            }
+            else if (period == 1)
+            {
+
+                foreach (ClsProfitAndLossStatementAccount account in otherRevenuesAccounts)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
+            }
         }
 
         public void addOtherRevenuesAccount(ClsProfitAndLossStatementAccount account)
@@ -226,16 +288,34 @@ namespace DataObject.AccountsCatalog
             return -1;
         }
 
-        public decimal otherProductsAccountsCalculateTotal()
+        public decimal otherProductsAccountsCalculateTotal(int period)
         {
             decimal total = 0;
 
-            foreach (ClsProfitAndLossStatementAccount account in otherProductsAccounts)
+            if (period == 1)
             {
-                total = total + account.Balance;
-            }
 
-            return total;
+                foreach (ClsProfitAndLossStatementAccount account in otherProductsAccounts)
+                {
+                    total = total + account.Balance[0];
+                }
+
+                return total;
+            }
+            else if (period == 1)
+            {
+
+                foreach (ClsProfitAndLossStatementAccount account in otherProductsAccounts)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
+            }
         }
 
         public void addOtherProductsAccount(ClsProfitAndLossStatementAccount account)
@@ -276,16 +356,33 @@ namespace DataObject.AccountsCatalog
             return -1;
         }
 
-        public decimal costsAccountsCalculateTotal()
+        public decimal costsAccountsCalculateTotal(int period)
         {
             decimal total = 0;
-
-            foreach (ClsProfitAndLossStatementAccount account in costsAccounts)
+            if (period == 1)
             {
-                total = total + account.Balance;
-            }
 
-            return total;
+                foreach (ClsProfitAndLossStatementAccount account in costsAccounts)
+                {
+                    total = total + account.Balance[0];
+                }
+
+                return total;
+            }
+            else if (period == 1)
+            {
+
+                foreach (ClsProfitAndLossStatementAccount account in costsAccounts)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
+            }
         }
 
         public void addCostsAccount(ClsProfitAndLossStatementAccount account)
@@ -327,16 +424,34 @@ namespace DataObject.AccountsCatalog
             return -1;
         }
 
-        public decimal salesExpensesAccountsCalculateTotal()
+        public decimal salesExpensesAccountsCalculateTotal(int period)
         {
             decimal total = 0;
 
-            foreach (ClsProfitAndLossStatementAccount account in salesExpensesAccounts)
+            if (period == 1)
             {
-                total = total + account.Balance;
-            }
 
-            return total;
+                foreach (ClsProfitAndLossStatementAccount account in salesExpensesAccounts)
+                {
+                    total = total + account.Balance[0];
+                }
+
+                return total;
+            }
+            else if (period == 1)
+            {
+
+                foreach (ClsProfitAndLossStatementAccount account in salesExpensesAccounts)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
+            }
         }
 
         public void addSalesExpensesAccount(ClsProfitAndLossStatementAccount account)
@@ -377,16 +492,34 @@ namespace DataObject.AccountsCatalog
             return -1;
         }
 
-        public decimal administrativeExpensesAccountsCalculateTotal()
+        public decimal administrativeExpensesAccountsCalculateTotal(int period)
         {
             decimal total = 0;
 
-            foreach (ClsProfitAndLossStatementAccount account in administrativeExpensesAccounts)
+            if (period == 1)
             {
-                total = total + account.Balance;
-            }
 
-            return total;
+                foreach (ClsProfitAndLossStatementAccount account in administrativeExpensesAccounts)
+                {
+                    total = total + account.Balance[0];
+                }
+
+                return total;
+            }
+            else if (period == 1)
+            {
+
+                foreach (ClsProfitAndLossStatementAccount account in administrativeExpensesAccounts)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
+            }
         }
 
         public void addAdministrativeExpensesAccount(ClsProfitAndLossStatementAccount account)
@@ -428,16 +561,34 @@ namespace DataObject.AccountsCatalog
             return -1;
         }
 
-        public decimal financialExpensesAccountsCalculateTotal()
+        public decimal financialExpensesAccountsCalculateTotal(int period)
         {
             decimal total = 0;
 
-            foreach (ClsProfitAndLossStatementAccount account in financialExpensesAccounts)
+            if (period == 1)
             {
-                total = total + account.Balance;
-            }
 
-            return total;
+                foreach (ClsProfitAndLossStatementAccount account in financialExpensesAccounts)
+                {
+                    total = total + account.Balance[0];
+                }
+
+                return total;
+            }
+            else if (period == 1)
+            {
+
+                foreach (ClsProfitAndLossStatementAccount account in financialExpensesAccounts)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
+            }
         }
 
         public void addFinancialExpensesAccount(ClsProfitAndLossStatementAccount account)
@@ -480,16 +631,34 @@ namespace DataObject.AccountsCatalog
             return -1;
         }
 
-        public decimal otherExpensesAccountsCalculateTotal()
+        public decimal otherExpensesAccountsCalculateTotal(int period)
         {
             decimal total = 0;
 
-            foreach (ClsProfitAndLossStatementAccount account in otherExpensesAccounts)
+            if (period == 1)
             {
-                total = total + account.Balance;
-            }
 
-            return total;
+                foreach (ClsProfitAndLossStatementAccount account in otherProductsAccounts)
+                {
+                    total = total + account.Balance[0];
+                }
+
+                return total;
+            }
+            else if (period == 1)
+            {
+
+                foreach (ClsProfitAndLossStatementAccount account in otherProductsAccounts)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
+            }
         }
 
 
@@ -518,11 +687,158 @@ namespace DataObject.AccountsCatalog
         #endregion
 
 
+        #region Miscellaneous Accounts Methods
+
+        public int searchMiscellaneousAccountWithName(string name)
+        {
+            for (int i = 0; i <= miscellaneousAccounts.Count; i++)
+            {
+                if (name == miscellaneousAccounts[i].Name)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        public decimal miscellaneousAccountsCalculateTotal(int period)
+        {
+            decimal total = 0;
+
+            if (period == 1)
+            {
+
+                foreach (ClsProfitAndLossStatementAccount account in miscellaneousAccounts)
+                {
+                    total = total + account.Balance[0];
+                }
+
+                return total;
+            }
+            else if (period == 1)
+            {
+
+                foreach (ClsProfitAndLossStatementAccount account in miscellaneousAccounts)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
+            }
+        }
+
+
+        public void addMiscellaneousAccount(ClsProfitAndLossStatementAccount account)
+        {
+            miscellaneousAccounts.Add(account);
+        }
+
+        public void removeMiscellaneousAccount(int index)
+        {
+            miscellaneousAccounts.RemoveAt(index);
+        }
+
+        public void setMiscellaneousAccountAt(int index, ClsProfitAndLossStatementAccount account)
+        {
+
+            miscellaneousAccounts[index] = account;
+        }
+
+        public void clearMiscellaneousAccounts()
+        {
+            miscellaneousAccounts.Clear();
+
+        }
+
+
+        #endregion
+
+        #region Profit Statement Accounts
+
+        public int searchProfitStatementAccountWithName(string name)
+        {
+            for (int i = 0; i <= profitStatementAccounts.Count; i++)
+            {
+                if (name == profitStatementAccounts[i].Name)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        public decimal profitStatementAccountsCalculateTotal(int period)
+        {
+            decimal total = 0;
+
+            if (period == 1)
+            {
+
+                foreach (ClsProfitAndLossStatementAccount account in profitStatementAccounts)
+                {
+                    total = total + account.Balance[0];
+                }
+
+                return total;
+            }
+            else if (period == 1)
+            {
+
+                foreach (ClsProfitAndLossStatementAccount account in ProfitStatementAccounts)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
+            }
+        }
+
+
+        public void addProfitStatementAccount(ClsProfitAndLossStatementAccount account)
+        {
+            profitStatementAccounts.Add(account);
+        }
+
+        public void removeProfitStatementAccount(int index)
+        {
+            profitStatementAccounts.RemoveAt(index);
+        }
+
+        public void setProfitStatementAccountAt(int index, ClsProfitAndLossStatementAccount account)
+        {
+
+            profitStatementAccounts[index] = account;
+        }
+
+        public void clearProfitStatementAccounts()
+        {
+            profitStatementAccounts.Clear();
+
+        }
+
+        #endregion
+
+
+
+
+        #region Validate Account Type Methods
+
+
         private bool isSalesAccount(string name)
         {
-            foreach( var item in salesAccounts)
+            foreach (var item in salesAccounts)
             {
-                if(name == item.Name)
+                if (name == item.Name)
                 {
                     return true;
                 }
@@ -644,6 +960,33 @@ namespace DataObject.AccountsCatalog
             return false;
         }
 
+        private bool isProfitStatementAccount(string name)
+        {
+
+            foreach (var item in profitStatementAccounts)
+            {
+                if (name == item.Name)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+        private bool isMiscellaneousAccount(string name)
+        {
+            foreach (var item in miscellaneousAccounts)
+            {
+                if (name == item.Name)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
 
 
         public int accountType(string name)
@@ -684,11 +1027,26 @@ namespace DataObject.AccountsCatalog
             {
                 return 9;
             }
+            else if (isMiscellaneousAccount(name))
+            {
+                return 10;
+            }
+            else if (isProfitStatementAccount(name))
+            {
+                return 11;
+            }
             else
             {
                 return 0;
             }
         }
+
+
+
+        #endregion
+
+
+
 
 
 

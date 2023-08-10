@@ -50,7 +50,5 @@ F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\obj\Debug\GUI.csproj.CoreC
 F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\obj\Debug\GUI.csproj.CopyComplete
 F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\obj\Debug\GUI.exe
 F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\obj\Debug\GUI.pdb
-F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\obj\Debug\GUI.Tests.FrmCtlBalanceSheetPeriod2.resources
-F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\obj\Debug\GUI.Catalogs.FrmCtlProfitAndLossAccountsPeriod1.resources
-F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\obj\Debug\GUI.Catalogs.FrmCtlProfitAndLossAccountsPeriod2.resources
-F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\obj\Debug\GUI.Tests.FrmCtlBalanceSheetPeriod1.resources
+F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\obj\Debug\GUI.Catalogs.FrmCtlProfitAndLossAccounts.resources
+F:\Programacion DATA\Finance 1\Proyecto_Finanzas1\GUI\obj\Debug\GUI.Catalogs.FrmCtlBalanceSheetAccounts.resources

@@ -14,38 +14,64 @@ namespace DataAccess.AccountsDataAccess
     public class ClsBalanceSheetAccountsDA
     {
 
-        string filePath1 = "F:\\Programacion DATA\\Finance 1\\Proyecto_Finanzas1\\Resources\\DataAccess\\BalanceSheetAccountsPeriod1.xlsx";
-        string filePath2 = "F:\\Programacion DATA\\Finance 1\\Proyecto_Finanzas1\\Resources\\DataAccess\\BalanceSheetAccountsPeriod2.xlsx";
+        string filePath = "F:\\Programacion DATA\\Finance 1\\Proyecto_Finanzas1\\Resources\\DataAccess\\BalanceSheetAccounts.xlsx";
+
 
 
         public ClsBalanceSheetAccountsDA() { }
 
-        public Decimal saveAccountNewBalancePeriod1(ClsBalanceSheetAccount account, decimal balance)
-        {
 
-            SLDocument myDocument = new SLDocument(filePath1);
+        public void saveAccountNewBalance(ClsBalanceSheetAccount account, decimal balance, int period)
+        {
+            SLDocument myDocument = new SLDocument(filePath);
+
+
             int iRow = 2;
+
+
             if (account.AccountType == AccountType.CURRENT_ASSET)
             {
-
                 myDocument.SelectWorksheet("CurrentAssets");
 
                 while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
                 {
                     if (account.InternalCode == Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1)))
                     {
-                        myDocument.SetCellValue(iRow, 4, balance);
-                        myDocument.Save();
 
-                        return balance;
+                        if (period == 1)
+                        {
+                            myDocument.SetCellValue(iRow, 4, balance);
+                            myDocument.Save();
+                            account.Balance[period - 1] = balance;
+                            return;
+
+                        }
+                        else if (period == 2)
+                        {
+                            myDocument.SetCellValue(iRow, 5, balance);
+                            myDocument.Save();
+                            account.Balance[period - 1] = balance;
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine("No existe tal periodo!");
+                            throw new ArgumentOutOfRangeException(
+                            nameof(period),
+                            "Solo existen 2 periodos!"
+                            );
+                        }
+
+
                     }
 
-                    
+
                     iRow++;
                 }
 
             }
             else
+
             if (account.AccountType == AccountType.NONCURRENT_ASSET)
             {
                 myDocument.SelectWorksheet("NonCurrentAssets");
@@ -54,10 +80,32 @@ namespace DataAccess.AccountsDataAccess
                 {
                     if (account.InternalCode == Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1)))
                     {
-                        myDocument.SetCellValue(iRow, 4, balance);
-                        myDocument.Save();
 
-                        return balance;
+                        if (period == 1)
+                        {
+                            myDocument.SetCellValue(iRow, 4, balance);
+                            myDocument.Save();
+                            account.Balance[period - 1] = balance;
+                            return;
+
+                        }
+                        else if (period == 2)
+                        {
+                            myDocument.SetCellValue(iRow, 5, balance);
+                            myDocument.Save();
+                            account.Balance[period - 1] = balance;
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine("No existe tal periodo!");
+                            throw new ArgumentOutOfRangeException(
+                            nameof(period),
+                            "Solo existen 2 periodos!"
+                            );
+                        }
+
+
                     }
 
 
@@ -74,10 +122,32 @@ namespace DataAccess.AccountsDataAccess
                 {
                     if (account.InternalCode == Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1)))
                     {
-                        myDocument.SetCellValue(iRow, 4, balance);
-                        myDocument.Save();
 
-                        return balance;
+                        if (period == 1)
+                        {
+                            myDocument.SetCellValue(iRow, 4, balance);
+                            myDocument.Save();
+                            account.Balance[period - 1] = balance;
+                            return;
+
+                        }
+                        else if (period == 2)
+                        {
+                            myDocument.SetCellValue(iRow, 5, balance);
+                            myDocument.Save();
+                            account.Balance[period - 1] = balance;
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine("No existe tal periodo!");
+                            throw new ArgumentOutOfRangeException(
+                            nameof(period),
+                            "Solo existen 2 periodos!"
+                            );
+                        }
+
+
                     }
 
 
@@ -88,17 +158,38 @@ namespace DataAccess.AccountsDataAccess
             else
             if (account.AccountType == AccountType.SHORT_TERM_LIABILITIE)
             {
-                
-                myDocument.SelectWorksheet("ShortTermLiabilities");
+                myDocument.SelectWorksheet("ShortTermLiabilites");
 
                 while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
                 {
                     if (account.InternalCode == Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1)))
                     {
-                        myDocument.SetCellValue(iRow, 4, balance);
-                        myDocument.Save();
 
-                        return balance;
+                        if (period == 1)
+                        {
+                            myDocument.SetCellValue(iRow, 4, balance);
+                            myDocument.Save();
+                            account.Balance[period - 1] = balance;
+                            return;
+
+                        }
+                        else if (period == 2)
+                        {
+                            myDocument.SetCellValue(iRow, 5, balance);
+                            myDocument.Save();
+                            account.Balance[period - 1] = balance;
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine("No existe tal periodo!");
+                            throw new ArgumentOutOfRangeException(
+                            nameof(period),
+                            "Solo existen 2 periodos!"
+                            );
+                        }
+
+
                     }
 
 
@@ -109,17 +200,38 @@ namespace DataAccess.AccountsDataAccess
             else
             if (account.AccountType == AccountType.LONG_TERM_LIABILITIE)
             {
-           
                 myDocument.SelectWorksheet("LongTermLiabilities");
 
                 while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
                 {
                     if (account.InternalCode == Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1)))
                     {
-                        myDocument.SetCellValue(iRow, 4, balance);
-                        myDocument.Save();
 
-                        return balance;
+                        if (period == 1)
+                        {
+                            myDocument.SetCellValue(iRow, 4, balance);
+                            myDocument.Save();
+                            account.Balance[period - 1] = balance;
+                            return;
+
+                        }
+                        else if (period == 2)
+                        {
+                            myDocument.SetCellValue(iRow, 5, balance);
+                            myDocument.Save();
+                            account.Balance[period - 1] = balance;
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine("No existe tal periodo!");
+                            throw new ArgumentOutOfRangeException(
+                            nameof(period),
+                            "Solo existen 2 periodos!"
+                            );
+                        }
+
+
                     }
 
 
@@ -128,46 +240,40 @@ namespace DataAccess.AccountsDataAccess
 
             }
             else
-            if (account.AccountType == AccountType.STOCKHOLDERS_EQUITY)
+             if (account.AccountType == AccountType.STOCKHOLDERS_EQUITY)
             {
-          
                 myDocument.SelectWorksheet("StockholdersEquity");
 
                 while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
                 {
                     if (account.InternalCode == Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1)))
                     {
-                        myDocument.SetCellValue(iRow, 4, balance);
-                        myDocument.Save();
 
-                        return balance;
-                    }
+                        if (period == 1)
+                        {
+                            myDocument.SetCellValue(iRow, 4, balance);
+                            myDocument.Save();
+                            account.Balance[period - 1] = balance;
+                            return;
 
-                    iRow++;
-                }
+                        }
+                        else if (period == 2)
+                        {
+                            myDocument.SetCellValue(iRow, 5, balance);
+                            myDocument.Save();
+                            account.Balance[period - 1] = balance;
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine("No existe tal periodo!");
+                            throw new ArgumentOutOfRangeException(
+                            nameof(period),
+                            "Solo existen 2 periodos!"
+                            );
+                        }
 
-            }
 
-            return 0;
-        }
-
-        public Decimal saveAccountNewBalancePeriod2(ClsBalanceSheetAccount account, decimal balance)
-        {
-            SLDocument myDocument = new SLDocument(filePath2);
-            int iRow = 2;
-            if (account.AccountType == AccountType.CURRENT_ASSET)
-            {
-
-                myDocument.SelectWorksheet("CurrentAssets");
-
-                while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
-                {
-                    if (account.InternalCode == Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1)))
-                    {
-                        myDocument.SetCellValue(iRow, 4, balance);
-                        myDocument.Save();
-
-                        return balance;
                     }
 
 
@@ -175,115 +281,14 @@ namespace DataAccess.AccountsDataAccess
                 }
 
             }
-            else
-            if (account.AccountType == AccountType.NONCURRENT_ASSET)
-            {
-                myDocument.SelectWorksheet("NonCurrentAssets");
-
-                while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
-                {
-                    if (account.InternalCode == Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1)))
-                    {
-                        myDocument.SetCellValue(iRow, 4, balance);
-                        myDocument.Save();
-
-                        return balance;
-                    }
-
-
-                    iRow++;
-                }
-
-            }
-            else
-            if (account.AccountType == AccountType.DEFERRED_ASSET)
-            {
-                myDocument.SelectWorksheet("DeferredAssets");
-
-                while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
-                {
-                    if (account.InternalCode == Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1)))
-                    {
-                        myDocument.SetCellValue(iRow, 4, balance);
-                        myDocument.Save();
-
-                        return balance;
-                    }
-
-
-                    iRow++;
-                }
-
-            }
-            else
-            if (account.AccountType == AccountType.SHORT_TERM_LIABILITIE)
-            {
-               
-                myDocument.SelectWorksheet("ShortTermLiabilities");
-
-                while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
-                {
-                    if (account.InternalCode == Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1)))
-                    {
-                        myDocument.SetCellValue(iRow, 4, balance);
-                        myDocument.Save();
-
-                        return balance;
-                    }
-
-
-                    iRow++;
-                }
-
-            }
-            else
-            if (account.AccountType == AccountType.LONG_TERM_LIABILITIE)
-            {
             
-                myDocument.SelectWorksheet("LongTermLiabilities");
-
-                while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
-                {
-                    if (account.InternalCode == Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1)))
-                    {
-                        myDocument.SetCellValue(iRow, 4, balance);
-                        myDocument.Save();
-
-                        return balance;
-                    }
-
-
-                    iRow++;
-                }
-
-            }
-            else
-            if (account.AccountType == AccountType.STOCKHOLDERS_EQUITY)
-            {
-               
-                myDocument.SelectWorksheet("StockholdersEquity");
-
-                while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
-                {
-                    if (account.InternalCode == Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1)))
-                    {
-                        myDocument.SetCellValue(iRow, 4, balance);
-                        myDocument.Save();
-
-                        return balance;
-                    }
-
-                    iRow++;
-                }
-
-            }
-
-            return 0;
+           
 
         }
 
 
-        public ClsBalanceSheetAccountsCatalog openAccounts1()
+
+        public ClsBalanceSheetAccountsCatalog openAccounts()
         {
 
 
@@ -293,7 +298,7 @@ namespace DataAccess.AccountsDataAccess
 
             try
             {
-                SLDocument myDocument = new SLDocument(filePath1);
+                SLDocument myDocument = new SLDocument(filePath);
 
 
                 myDocument.SelectWorksheet("CurrentAssets");
@@ -305,7 +310,8 @@ namespace DataAccess.AccountsDataAccess
                     account.InternalCode = Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1));
                     account.AccountCode = myDocument.GetCellValueAsString(iRow, 2);
                     account.Name = myDocument.GetCellValueAsString(iRow, 3);
-                    account.Balance = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
+                    account.Balance[0] = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
+                    account.Balance[1] = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 5));
                     account.AccountType = AccountType.CURRENT_ASSET;
                     catalog.addCurrentAsset(account);
                     iRow++;
@@ -322,7 +328,8 @@ namespace DataAccess.AccountsDataAccess
                     account.InternalCode = Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1));
                     account.AccountCode = myDocument.GetCellValueAsString(iRow, 2);
                     account.Name = myDocument.GetCellValueAsString(iRow, 3);
-                    account.Balance = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
+                    account.Balance[0] = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
+                    account.Balance[1] = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 5));
                     account.AccountType = AccountType.NONCURRENT_ASSET;
                     catalog.addNonCurrentAsset(account);
                     iRow++;
@@ -339,7 +346,8 @@ namespace DataAccess.AccountsDataAccess
                     account.InternalCode = Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1));
                     account.AccountCode = myDocument.GetCellValueAsString(iRow, 2);
                     account.Name = myDocument.GetCellValueAsString(iRow, 3);
-                    account.Balance = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
+                    account.Balance[0] = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
+                    account.Balance[1] = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 5));
                     account.AccountType = AccountType.DEFERRED_ASSET;
                     catalog.addDeferredAsset(account);
                     iRow++;
@@ -356,7 +364,8 @@ namespace DataAccess.AccountsDataAccess
                     account.InternalCode = Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1));
                     account.AccountCode = myDocument.GetCellValueAsString(iRow, 2);
                     account.Name = myDocument.GetCellValueAsString(iRow, 3);
-                    account.Balance = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
+                    account.Balance[0] = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
+                    account.Balance[1] = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 5));
                     account.AccountType = AccountType.SHORT_TERM_LIABILITIE;
                     catalog.addShortTermLiabilitie(account);
                     iRow++;
@@ -373,7 +382,8 @@ namespace DataAccess.AccountsDataAccess
                     account.InternalCode = Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1));
                     account.AccountCode = myDocument.GetCellValueAsString(iRow, 2);
                     account.Name = myDocument.GetCellValueAsString(iRow, 3);
-                    account.Balance = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
+                    account.Balance[0] = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
+                    account.Balance[1] = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 5));
                     account.AccountType = AccountType.LONG_TERM_LIABILITIE;
                     catalog.addLongTermLiabilitie(account);
                     iRow++;
@@ -392,7 +402,8 @@ namespace DataAccess.AccountsDataAccess
                     account.InternalCode = Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1));
                     account.AccountCode = myDocument.GetCellValueAsString(iRow, 2);
                     account.Name = myDocument.GetCellValueAsString(iRow, 3);
-                    account.Balance = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
+                    account.Balance[0] = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
+                    account.Balance[1] = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 5));
                     account.AccountType = AccountType.STOCKHOLDERS_EQUITY;
                     catalog.addStockholdersEquity(account);
                     iRow++;
@@ -413,136 +424,7 @@ namespace DataAccess.AccountsDataAccess
 
         }
 
-        public ClsBalanceSheetAccountsCatalog openAccounts2()
-        {
-
-
-
-            int iRow = 2;
-            ClsBalanceSheetAccountsCatalog catalog = new ClsBalanceSheetAccountsCatalog();
-
-
-            try
-            {
-                SLDocument myDocument = new SLDocument(filePath2);
-
-
-                myDocument.SelectWorksheet("CurrentAssets");
-
-                while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
-                {
-                    ClsBalanceSheetAccount account = new ClsBalanceSheetAccount();
-
-                    account.InternalCode = Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1));
-                    account.AccountCode = myDocument.GetCellValueAsString(iRow, 2);
-                    account.Name = myDocument.GetCellValueAsString(iRow, 3);
-                    account.Balance = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
-                    account.AccountType = AccountType.CURRENT_ASSET;
-                    catalog.addCurrentAsset(account);
-                    iRow++;
-                }
-
-                myDocument.SelectWorksheet("NonCurrentAssets");
-
-                iRow = 2;
-
-                while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
-                {
-                    ClsBalanceSheetAccount account = new ClsBalanceSheetAccount();
-
-                    account.InternalCode = Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1));
-                    account.AccountCode = myDocument.GetCellValueAsString(iRow, 2);
-                    account.Name = myDocument.GetCellValueAsString(iRow, 3);
-                    account.Balance = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
-                    account.AccountType = AccountType.NONCURRENT_ASSET;
-                    catalog.addNonCurrentAsset(account);
-                    iRow++;
-                }
-
-                myDocument.SelectWorksheet("DeferredAssets");
-
-                iRow = 2;
-
-                while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
-                {
-                    ClsBalanceSheetAccount account = new ClsBalanceSheetAccount();
-
-                    account.InternalCode = Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1));
-                    account.AccountCode = myDocument.GetCellValueAsString(iRow, 2);
-                    account.Name = myDocument.GetCellValueAsString(iRow, 3);
-                    account.Balance = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
-                    account.AccountType = AccountType.DEFERRED_ASSET;
-                    catalog.addDeferredAsset(account);
-                    iRow++;
-                }
-
-                myDocument.SelectWorksheet("ShortTermLiabilities");
-
-                iRow = 2;
-
-                while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
-                {
-                    ClsBalanceSheetAccount account = new ClsBalanceSheetAccount();
-
-                    account.InternalCode = Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1));
-                    account.AccountCode = myDocument.GetCellValueAsString(iRow, 2);
-                    account.Name = myDocument.GetCellValueAsString(iRow, 3);
-                    account.Balance = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
-                    account.AccountType = AccountType.SHORT_TERM_LIABILITIE;
-                    catalog.addShortTermLiabilitie(account);
-                    iRow++;
-                }
-
-                myDocument.SelectWorksheet("LongTermLiabilities");
-
-                iRow = 2;
-
-                while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
-                {
-                    ClsBalanceSheetAccount account = new ClsBalanceSheetAccount();
-
-                    account.InternalCode = Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1));
-                    account.AccountCode = myDocument.GetCellValueAsString(iRow, 2);
-                    account.Name = myDocument.GetCellValueAsString(iRow, 3);
-                    account.Balance = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
-                    account.AccountType = AccountType.LONG_TERM_LIABILITIE;
-                    catalog.addLongTermLiabilitie(account);
-                    iRow++;
-                }
-
-
-
-                myDocument.SelectWorksheet("StockholdersEquity");
-
-                iRow = 2;
-
-                while (!string.IsNullOrEmpty(myDocument.GetCellValueAsString(iRow, 1)))
-                {
-                    ClsBalanceSheetAccount account = new ClsBalanceSheetAccount();
-
-                    account.InternalCode = Convert.ToInt32(myDocument.GetCellValueAsString(iRow, 1));
-                    account.AccountCode = myDocument.GetCellValueAsString(iRow, 2);
-                    account.Name = myDocument.GetCellValueAsString(iRow, 3);
-                    account.Balance = Convert.ToDecimal(myDocument.GetCellValueAsString(iRow, 4));
-                    account.AccountType = AccountType.STOCKHOLDERS_EQUITY;
-                    catalog.addStockholdersEquity(account);
-                    iRow++;
-                }
-
-                return catalog;
-
-
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message);
-                return null;
-            }
-
-
-        }
-
+        
 
     }
     

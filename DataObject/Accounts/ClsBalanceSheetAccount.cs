@@ -24,11 +24,10 @@ namespace DataObject.Accounts
 
         public AccountType AccountType { get => accountType; set => accountType = value; }
 
-        public ClsBalanceSheetAccount(AccountType tipocuenta, string accountCode, int internalCode, string name, decimal balance) : base(accountCode, name, balance, internalCode)
+        public ClsBalanceSheetAccount(AccountType tipocuenta, string accountCode, int internalCode, string name, decimal balance) : base(accountCode, name, internalCode)
         {
             Name = name;
             AccountCode = accountCode;
-            Balance = balance;
             InternalCode = internalCode;
             AccountType = tipocuenta;
         }

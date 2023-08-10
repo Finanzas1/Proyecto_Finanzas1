@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace DataObject.Accounts
 {
 
-    public enum ProfitAndLossAccountType { SALE, FINANCIAL_PRODUCT, OTHER_REVENUE, OTHER_PRODUCT, COST, SALES_EXPENSES, ADMINISTRATIVE_EXPENSES, FINANCIAL_EXPENSES, OTHER_EXPENSES}
+    public enum ProfitAndLossAccountType { SALE, FINANCIAL_PRODUCT, OTHER_REVENUE, OTHER_PRODUCT, COST, SALES_EXPENSES, ADMINISTRATIVE_EXPENSES, FINANCIAL_EXPENSES, OTHER_EXPENSES,
+    PROFIT_STATEMENT, MISCELLANEOUS}
 
     public class ClsProfitAndLossStatementAccount : ClsAccount
     {
@@ -18,11 +19,10 @@ namespace DataObject.Accounts
         {
         }
 
-        public ClsProfitAndLossStatementAccount(string accountCode, string name, decimal balance, int internalCode, ProfitAndLossAccountType profitAndLossAccountType) : base(accountCode, name, balance, internalCode)
+        public ClsProfitAndLossStatementAccount(string accountCode, string name, decimal balance, int internalCode, ProfitAndLossAccountType profitAndLossAccountType) : base(accountCode, name, internalCode)
         {
             Name = name;
             AccountCode = accountCode;
-            Balance = balance;
             InternalCode = internalCode;
             ProfitAndLossAccountType = profitAndLossAccountType;
         }

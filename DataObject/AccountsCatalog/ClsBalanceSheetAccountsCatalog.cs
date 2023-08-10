@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,7 +21,7 @@ namespace DataObject.AccountsCatalog
         #endregion
 
         #region Public Variables
-        public List<ClsBalanceSheetAccount> CurrentAssetsAccountAccounts { get => currentAssets; set => currentAssets = value; }
+        public List<ClsBalanceSheetAccount> CurrentAssetsAccount { get => currentAssets; set => currentAssets = value; }
         public List<ClsBalanceSheetAccount> NonCurrentAssetAccounts { get => nonCurrentAssets; set => nonCurrentAssets = value; }
         public List<ClsBalanceSheetAccount> ShortTermLiabilityAccounts { get => shortTermLiabilities; set => shortTermLiabilities = value; }
         public List<ClsBalanceSheetAccount> LongTermLiabilityAccounts { get => longTermLiabilities; set => longTermLiabilities = value; }
@@ -79,16 +80,35 @@ namespace DataObject.AccountsCatalog
         }
 
   
-        public decimal currentAssetsCalculateTotal()
+        public decimal currentAssetsCalculateTotal(int period)
         {
             decimal total = 0;
             
-            foreach (ClsBalanceSheetAccount account in currentAssets)
+
+            if(period == 1)
             {
-                total = total + account.Balance;
+                foreach (ClsBalanceSheetAccount account in currentAssets)
+                {
+                    total = total + account.Balance[0];
+                }
+
+                return total;
+            }
+            else if(period == 2)
+            {
+                foreach (ClsBalanceSheetAccount account in currentAssets)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
             }
 
-            return total;
+           
         }
 
         #endregion
@@ -129,16 +149,35 @@ namespace DataObject.AccountsCatalog
 
         }
 
-        public decimal nonCurrentAssetsCalculateTotal()
+        public decimal nonCurrentAssetsCalculateTotal(int period)
         {
             decimal total = 0;
 
-            foreach (ClsBalanceSheetAccount account in nonCurrentAssets)
+
+            if (period == 1)
             {
-                total = total + account.Balance;
+                foreach (ClsBalanceSheetAccount account in nonCurrentAssets)
+                {
+                    total = total + account.Balance[0];
+                }
+
+                return total;
+            }
+            else if (period == 2)
+            {
+                foreach (ClsBalanceSheetAccount account in nonCurrentAssets)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
             }
 
-            return total;
+
         }
 
         #endregion
@@ -178,16 +217,31 @@ namespace DataObject.AccountsCatalog
 
         }
 
-        public decimal deferredAssetsCalculateTotal()
+        public decimal deferredAssetsCalculateTotal(int period)
         {
             decimal total = 0;
-
-            foreach (ClsBalanceSheetAccount account in deferredAssets)
+            if(period == 1)
             {
-                total = total + account.Balance;
-            }
+                foreach (ClsBalanceSheetAccount account in deferredAssets)
+                {
+                    total = total + account.Balance[0];
+                }
 
-            return total;
+                return total;
+            }
+            else if (period == 2)
+            {
+                foreach (ClsBalanceSheetAccount account in deferredAssets)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
+            }
         }
 
         #endregion
@@ -228,16 +282,33 @@ namespace DataObject.AccountsCatalog
 
         }
 
-        public decimal shortTermLiabilitiesCalculateTotal()
+        public decimal shortTermLiabilitiesCalculateTotal(int period)
         {
             decimal total = 0;
 
-            foreach (ClsBalanceSheetAccount account in shortTermLiabilities)
+           
+            if (period == 1)
             {
-                total = total + account.Balance;
-            }
+                foreach (ClsBalanceSheetAccount account in shortTermLiabilities)
+                {
+                    total = total + account.Balance[0];
+                }
 
-            return total;
+                return total;
+            }
+            else if (period == 2)
+            {
+                foreach (ClsBalanceSheetAccount account in shortTermLiabilities)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
+            }
         }
 
         #endregion
@@ -278,16 +349,32 @@ namespace DataObject.AccountsCatalog
 
         }
 
-        public decimal longTermLiabilitiesCalculateTotal()
+        public decimal longTermLiabilitiesCalculateTotal(int period)
         {
             decimal total = 0;
 
-            foreach (ClsBalanceSheetAccount account in longTermLiabilities)
+            if (period == 1)
             {
-                total = total + account.Balance;
-            }
+                foreach (ClsBalanceSheetAccount account in longTermLiabilities)
+                {
+                    total = total + account.Balance[0];
+                }
 
-            return total;
+                return total;
+            }
+            else if (period == 2)
+            {
+                foreach (ClsBalanceSheetAccount account in longTermLiabilities)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
+            }
         }
 
         #endregion
@@ -327,21 +414,160 @@ namespace DataObject.AccountsCatalog
 
         }
 
-        public decimal stockholdersEquitiesCalculateTotal()
+        public decimal stockholdersEquitiesCalculateTotal(int period)
         {
             decimal total = 0;
 
-            foreach (ClsBalanceSheetAccount account in stockholdersEquity)
+            if (period == 1)
             {
-                total = total + account.Balance;
-            }
+                foreach (ClsBalanceSheetAccount account in stockholdersEquity)
+                {
+                    total = total + account.Balance[0];
+                }
 
-            return total;
+                return total;
+            }
+            else if (period == 2)
+            {
+                foreach (ClsBalanceSheetAccount account in stockholdersEquity)
+                {
+                    total = total + account.Balance[1];
+                }
+
+                return total;
+            }
+            else
+            {
+                return total;
+            }
         }
 
 
 
         #endregion
+
+        #region Validate account type methods
+
+        private bool isCurrentAssetAccount(string name)
+        {
+            foreach (var item in currentAssets)
+            {
+                if (name == item.Name)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool isNonCurrentAssetAccount(string name)
+        {
+
+            foreach (var item in nonCurrentAssets)
+            {
+                if (name == item.Name)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool isDeferredAssetAccount(string name)
+        {
+
+            foreach (var item in deferredAssets)
+            {
+                if (name == item.Name)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool isShortTermLiabilityAccount(string name)
+        {
+
+            foreach (var item in shortTermLiabilities)
+            {
+                if (name == item.Name)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool isLongTermLiabilityAccount(string name)
+        {
+
+            foreach (var item in longTermLiabilities)
+            {
+                if (name == item.Name)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool isStockholdersEquityAccount(string name)
+        {
+
+            foreach (var item in stockholdersEquity)
+            {
+                if (name == item.Name)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+        public int accountType(string name)
+        {
+            if (isCurrentAssetAccount(name))
+            {
+                return 1;
+            }
+            else if (isNonCurrentAssetAccount(name))
+            {
+                return 2;
+            }
+            else if (isDeferredAssetAccount(name))
+            {
+                return 3;
+            }
+            else if (isShortTermLiabilityAccount(name))
+            {
+                return 4;
+            }
+            else if (isLongTermLiabilityAccount(name))
+            {
+                return 5;
+            }
+            else if (isStockholdersEquityAccount(name))
+            {
+                return 6;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
+
+
+        #endregion
+
 
 
 
